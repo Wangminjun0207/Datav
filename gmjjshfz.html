@@ -656,27 +656,33 @@
         <!-- 导航栏 -->
         <div class="px-1 py-3 border-t border-primary/20">
             <div class="flex justify-center items-center space-x-2">
-                <button class="nav-btn active bg-primary/30 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/40" data-section="overview">
-                    <i class="fa fa-dashboard mr-2"></i>数据概览
-                </button>
-                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
-                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="economy">
+                <button
+                    class="nav-btn active bg-primary/30 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/40"
+                    data-section="economy">
                     <i class="fa fa-line-chart mr-2"></i>经济发展
                 </button>
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
-                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="agriculture">
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="agriculture">
                     <i class="fa fa-leaf mr-2"></i>农业生产
                 </button>
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
-                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="social">
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="social">
                     <i class="fa fa-users mr-2"></i>社会民生
                 </button>
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
-                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="finance">
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="finance">
                     <i class="fa fa-money mr-2"></i>财政金融
                 </button>
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
-                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="environment">
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="environment">
                     <i class="fa fa-tree mr-2"></i>资源环境
                 </button>
             </div>
@@ -685,172 +691,13 @@
 
     <main class="min-h-screen main-content content-safe-area" id="main-content" style="padding-top: 0px !important;">
         <div class="px-1 py-1">
-            <!-- 数据概览 -->
-            <section id="overview" class="page active mb-3 section-header" style="padding-top: 0;">
-                <div class="flex justify-end mb-2">
-                    <div class="text-xs text-gray-400">
-                        最后更新时间: <span class="text-primary">2025-07-29 10:30:00</span>
-                    </div>
-                </div>
-
-                <div class="dashboard-grid">
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">地区生产总值</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥95<span class="text-xl">亿</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                                <i class="fa fa-line-chart"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>6.1%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">固定资产投资</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥186.3<span class="text-xl">亿</span>
-                                </h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-building"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>8.2%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">一般公共预算收入</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥3.8<span class="text-xl">亿</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                                <i class="fa fa-money"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>11.12%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">社会消费品零售总额</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥28.5<span class="text-xl">亿</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-shopping-cart"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>7.3%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 第二行关键指标 -->
-                <div class="dashboard-grid mt-2">
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">常住人口</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">41.79<span class="text-xl">万</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-users"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-danger">
-                            <i class="fa fa-arrow-down mr-1"></i>
-                            <span>0.1万</span>
-                            <span class="text-gray-400 text-sm ml-1">同比减少</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">城镇居民人均可支配收入</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥33,979</h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                                <i class="fa fa-money"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>5.1%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">农村居民人均可支配收入</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥11,490</h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-home"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>8.3%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-3">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">城镇化率</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">34.84<span class="text-xl">%</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-building"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>1.47%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比提高</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- 经济发展 -->
-            <section id="economy" class="page mb-3" style="display: none;">
+            <section id="economy" class="page active mb-3" style="display: block;">
                 <div class="text-center mb-4">
-                    <h2
+                    <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
                         经济发展
-                    </h2>
+                    </h2> -->
                 </div>
 
                 <div class="dashboard-grid">
@@ -920,10 +767,10 @@
             <!-- 农业生产 -->
             <section id="agriculture" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
-                    <h2
+                    <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-primary to-secondary mb-2 section-title">
                         农业生产
-                    </h2>
+                    </h2>-->
                 </div>
 
                 <div class="dashboard-grid">
@@ -1098,10 +945,10 @@
             <!-- 社会民生 -->
             <section id="social" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
-                    <h2
+                    <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-success mb-2 section-title">
                         社会民生
-                    </h2>
+                    </h2>-->
                 </div>
 
                 <div class="dashboard-grid">
@@ -1238,10 +1085,10 @@
             <!-- 财政金融 -->
             <section id="finance" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
-                    <h2
+                    <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-warning via-accent to-primary mb-2 section-title">
                         财政金融
-                    </h2>
+                    </h2> -->
                 </div>
 
                 <div class="dashboard-grid">
@@ -1346,10 +1193,10 @@
             <!-- 资源环境 -->
             <section id="environment" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
-                    <h2
+                    <!-- 资<h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-secondary to-primary mb-2 section-title">
                         资源环境
-                    </h2>
+                    </h2> -->
                 </div>
 
                 <div class="dashboard-grid">
@@ -1532,11 +1379,11 @@
             // 使用内联样式确保颜色正确显示
             const colors = {
                 'success': '#10B981',
-                'error': '#EF4444', 
+                'error': '#EF4444',
                 'info': '#1E40AF',
                 'warning': '#F59E0B'
             };
-            
+
             const bgColor = colors[type] || colors['info'];
             notification.style.backgroundColor = bgColor;
 
@@ -1779,7 +1626,7 @@
             // 页面切换函数
             function switchToPage(pageId) {
                 console.log('切换到页面:', pageId);
-                
+
                 // 隐藏所有页面
                 pages.forEach(page => {
                     page.classList.remove('active');
@@ -1791,13 +1638,13 @@
                 if (targetPage) {
                     targetPage.classList.add('active');
                     targetPage.style.display = 'block';
-                    
+
                     // 滚动到页面顶部
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
                     });
-                    
+
                     console.log('已切换到页面:', pageId);
                 } else {
                     console.error('未找到页面:', pageId);
@@ -1825,7 +1672,7 @@
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetSection = this.getAttribute('data-section');
-                    
+
                     if (targetSection) {
                         switchToPage(targetSection);
                         updateNavButtons(targetSection);
@@ -1849,9 +1696,9 @@
             });
 
             // 初始化：确保默认显示第一个页面
-            switchToPage('overview');
-            updateNavButtons('overview');
-            
+            switchToPage('economy');
+            updateNavButtons('economy');
+
             console.log('页面切换功能初始化完成');
         }
 
@@ -3135,7 +2982,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     let label = context.dataset.label || '';
                                     if (label) {
                                         label += ': ';
