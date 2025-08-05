@@ -401,6 +401,33 @@
                 background-color: rgba(30, 64, 175, 0.2) !important;
             }
             
+            /* 页面切换样式 */
+            .page {
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            .page:not(.active) {
+                display: none !important;
+            }
+            
+            .page.active {
+                display: block !important;
+                animation: pageSlideIn 0.5s ease-out;
+            }
+            
+            @keyframes pageSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
             /* 导航栏响应式 */
             @media (max-width: 768px) {
                 .nav-btn {
@@ -413,15 +440,15 @@
                 }
                 
                 /* 小屏幕下隐藏中间装饰 */
-                .flex.justify-between.items-center .flex.items-center.space-x-2 {
+                .flex.justify-center.items-center.space-x-2 .w-1.h-6 {
                     display: none;
                 }
                 
-                /* 小屏幕下导航按钮居中 */
-                .flex.justify-between.items-center {
-                    justify-content: center;
+                /* 小屏幕下导航按钮换行 */
+                .flex.justify-center.items-center.space-x-2 {
                     flex-wrap: wrap;
                     gap: 0.5rem;
+                    justify-content: center;
                 }
                 
                 /* 小屏幕下标题调整 */
@@ -625,12 +652,41 @@
                 </button>
             </div>
         </div>
+
+        <!-- 导航栏 -->
+        <div class="px-1 py-3 border-t border-primary/20">
+            <div class="flex justify-center items-center space-x-2">
+                <button class="nav-btn active bg-primary/30 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/40" data-section="overview">
+                    <i class="fa fa-dashboard mr-2"></i>数据概览
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="economy">
+                    <i class="fa fa-line-chart mr-2"></i>经济发展
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="agriculture">
+                    <i class="fa fa-leaf mr-2"></i>农业生产
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="social">
+                    <i class="fa fa-users mr-2"></i>社会民生
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="finance">
+                    <i class="fa fa-money mr-2"></i>财政金融
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20" data-section="environment">
+                    <i class="fa fa-tree mr-2"></i>资源环境
+                </button>
+            </div>
+        </div>
     </header>
 
     <main class="min-h-screen main-content content-safe-area" id="main-content" style="padding-top: 0px !important;">
         <div class="px-1 py-1">
             <!-- 数据概览 -->
-            <section id="overview" class="mb-3 section-header" style="padding-top: 0;">
+            <section id="overview" class="page active mb-3 section-header" style="padding-top: 0;">
                 <div class="flex justify-end mb-2">
                     <div class="text-xs text-gray-400">
                         最后更新时间: <span class="text-primary">2025-07-29 10:30:00</span>
@@ -789,7 +845,7 @@
             </section>
 
             <!-- 经济发展 -->
-            <section id="economy" class="mb-3">
+            <section id="economy" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
                     <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
@@ -862,7 +918,7 @@
             </section>
 
             <!-- 农业生产 -->
-            <section id="agriculture" class="mb-3">
+            <section id="agriculture" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
                     <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-primary to-secondary mb-2 section-title">
@@ -1040,7 +1096,7 @@
             </section>
 
             <!-- 社会民生 -->
-            <section id="social" class="mb-3">
+            <section id="social" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
                     <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-success mb-2 section-title">
@@ -1180,7 +1236,7 @@
             </section>
 
             <!-- 财政金融 -->
-            <section id="finance" class="mb-3">
+            <section id="finance" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
                     <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-warning via-accent to-primary mb-2 section-title">
@@ -1288,7 +1344,7 @@
             </section>
 
             <!-- 资源环境 -->
-            <section id="environment" class="mb-3">
+            <section id="environment" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
                     <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-secondary to-primary mb-2 section-title">
@@ -1471,16 +1527,24 @@
         // 显示通知
         function showNotification(message, type = 'info') {
             const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+            notification.className = `fixed top-20 right-4 z-[60] px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full text-white`;
 
-            const bgColor = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-primary';
-            notification.classList.add(bgColor, 'text-white');
+            // 使用内联样式确保颜色正确显示
+            const colors = {
+                'success': '#10B981',
+                'error': '#EF4444', 
+                'info': '#1E40AF',
+                'warning': '#F59E0B'
+            };
+            
+            const bgColor = colors[type] || colors['info'];
+            notification.style.backgroundColor = bgColor;
 
             notification.innerHTML = `
                 <div class="flex items-center">
-                    <i class="fa ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} mr-2"></i>
+                    <i class="fa ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'} mr-2"></i>
                     <span>${message}</span>
-                    <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                    <button class="ml-4 text-white hover:text-gray-200 opacity-70 hover:opacity-100 transition-opacity" onclick="this.parentElement.parentElement.remove()">
                         <i class="fa fa-times"></i>
                     </button>
                 </div>
@@ -1491,10 +1555,12 @@
             // 动画显示
             setTimeout(() => {
                 notification.classList.remove('translate-x-full');
+                notification.classList.add('translate-x-0');
             }, 100);
 
             // 自动隐藏
             setTimeout(() => {
+                notification.classList.remove('translate-x-0');
                 notification.classList.add('translate-x-full');
                 setTimeout(() => {
                     if (notification.parentElement) {
@@ -1560,6 +1626,7 @@
             setupKeyboardShortcuts();
             setupFullscreen();
             setupTitleAnimation();
+            setupNavigation();
             setupLeadershipFeatures();
 
             // 多次调整内容间距，确保生效
@@ -1701,19 +1768,55 @@
             }
         }
 
-        // 导航功能
+        // 页面切换功能
         function setupNavigation() {
             const navButtons = document.querySelectorAll('.nav-btn');
-            const sections = document.querySelectorAll('section[id]');
+            const pages = document.querySelectorAll('.page');
 
             console.log('导航按钮数量:', navButtons.length);
-            console.log('页面区域数量:', sections.length);
+            console.log('页面数量:', pages.length);
 
-            // 测试导航功能
-            function testNavigation() {
-                console.log('测试导航功能...');
-                navButtons.forEach((btn, index) => {
-                    console.log(`按钮 ${index + 1}:`, btn.getAttribute('data-section'));
+            // 页面切换函数
+            function switchToPage(pageId) {
+                console.log('切换到页面:', pageId);
+                
+                // 隐藏所有页面
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                    page.style.display = 'none';
+                });
+
+                // 显示目标页面
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    targetPage.style.display = 'block';
+                    
+                    // 滚动到页面顶部
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    
+                    console.log('已切换到页面:', pageId);
+                } else {
+                    console.error('未找到页面:', pageId);
+                }
+            }
+
+            // 更新导航按钮状态
+            function updateNavButtons(activePageId) {
+                navButtons.forEach(btn => {
+                    const btnSection = btn.getAttribute('data-section');
+                    if (btnSection === activePageId) {
+                        btn.classList.add('active');
+                        btn.classList.remove('bg-primary/10');
+                        btn.classList.add('bg-primary/30', 'text-white');
+                    } else {
+                        btn.classList.remove('active');
+                        btn.classList.remove('bg-primary/30', 'text-white');
+                        btn.classList.add('bg-primary/10', 'text-slate-300');
+                    }
                 });
             }
 
@@ -1722,66 +1825,34 @@
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetSection = this.getAttribute('data-section');
-                    console.log('点击导航按钮:', targetSection);
-
-                    // 更新按钮状态
-                    navButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                        btn.classList.add('bg-primary/10');
-                    });
-                    this.classList.add('active');
-                    this.classList.remove('bg-primary/10');
-
-                    // 滚动到目标区域
-                    const targetElement = document.getElementById(targetSection);
-                    if (targetElement) {
-                        console.log('找到目标元素:', targetSection);
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const targetPosition = targetElement.offsetTop - headerHeight - 10;
-
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        console.error('未找到目标元素:', targetSection);
+                    
+                    if (targetSection) {
+                        switchToPage(targetSection);
+                        updateNavButtons(targetSection);
                     }
                 });
 
                 // 添加鼠标悬停效果
                 button.addEventListener('mouseenter', function () {
-                    console.log('鼠标悬停在按钮上:', this.getAttribute('data-section'));
+                    if (!this.classList.contains('active')) {
+                        this.classList.remove('text-slate-300');
+                        this.classList.add('text-white');
+                    }
                 });
-            });
 
-            // 执行测试
-            testNavigation();
-
-            // 滚动监听，自动更新当前激活的导航按钮
-            window.addEventListener('scroll', function () {
-                const scrollPosition = window.scrollY + 100;
-                const headerHeight = document.querySelector('header').offsetHeight;
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        // 更新导航按钮状态
-                        navButtons.forEach(btn => {
-                            btn.classList.remove('active');
-                            btn.classList.add('bg-primary/10');
-                        });
-
-                        const activeButton = document.querySelector(`[data-section="${sectionId}"]`);
-                        if (activeButton) {
-                            activeButton.classList.add('active');
-                            activeButton.classList.remove('bg-primary/10');
-                        }
+                button.addEventListener('mouseleave', function () {
+                    if (!this.classList.contains('active')) {
+                        this.classList.remove('text-white');
+                        this.classList.add('text-slate-300');
                     }
                 });
             });
+
+            // 初始化：确保默认显示第一个页面
+            switchToPage('overview');
+            updateNavButtons('overview');
+            
+            console.log('页面切换功能初始化完成');
         }
 
         // 图表渲染函数
@@ -3121,33 +3192,7 @@
             }
         }
 
-        // 测试导航功能
-        function testNavClick() {
-            console.log('=== 开始测试导航功能 ===');
 
-            // 测试第一个导航按钮
-            const firstNavBtn = document.querySelector('.nav-btn[data-section="overview"]');
-            if (firstNavBtn) {
-                console.log('找到第一个导航按钮，模拟点击...');
-                firstNavBtn.click();
-
-                // 检查是否成功滚动
-                setTimeout(() => {
-                    const scrollPosition = window.scrollY;
-                    console.log('当前滚动位置:', scrollPosition);
-
-                    if (scrollPosition > 0) {
-                        console.log('✅ 导航功能正常！页面已滚动');
-                    } else {
-                        console.log('❌ 导航功能异常！页面未滚动');
-                    }
-                }, 1000);
-            } else {
-                console.log('❌ 未找到导航按钮');
-            }
-
-            console.log('=== 测试完成 ===');
-        }
 
         // 领导展示专用功能
         function setupLeadershipFeatures() {
