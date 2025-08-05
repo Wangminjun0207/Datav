@@ -1,0 +1,3319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024年岷县国民经济和社会发展统计可视化公报</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF', // 深蓝色主色调
+                        secondary: '#0EA5E9', // 浅蓝色辅助色
+                        accent: '#F97316', // 橙色强调色
+                        success: '#10B981', // 绿色成功色
+                        warning: '#F59E0B', // 黄色警告色
+                        danger: '#EF4444', // 红色危险色
+                        neutral: '#64748B', // 中性色
+                        dark: '#0F172A', // 深色背景
+                        light: '#F8FAFC', // 浅色文本
+                        'bg-dark': '#0B1120', // 深色背景
+                        'bg-card': '#1E293B', // 卡片背景
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-glow {
+                box-shadow: 0 0 15px rgba(30, 64, 175, 0.3);
+            }
+            .stat-card {
+                @apply bg-bg-card rounded-lg p-3 card-glow border border-primary/20 transition-all duration-300 hover:border-primary/40;
+            }
+            .chart-container {
+                @apply bg-bg-card rounded-lg p-3 card-glow border border-primary/20 h-full;
+            }
+            .glow-text {
+                text-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
+            }
+            .dashboard-grid {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                grid-gap: 0.5rem;
+            }
+            /* 网格跨度类定义 */
+            .grid-span-1 { grid-column: span 1 / span 1; }
+            .grid-span-2 { grid-column: span 2 / span 2; }
+            .grid-span-3 { grid-column: span 3 / span 3; }
+            .grid-span-4 { grid-column: span 4 / span 4; }
+            .grid-span-5 { grid-column: span 5 / span 5; }
+            .grid-span-6 { grid-column: span 6 / span 6; }
+            .grid-span-7 { grid-column: span 7 / span 7; }
+            .grid-span-8 { grid-column: span 8 / span 8; }
+            .grid-span-9 { grid-column: span 9 / span 9; }
+            .grid-span-10 { grid-column: span 10 / span 10; }
+            .grid-span-11 { grid-column: span 11 / span 11; }
+            .grid-span-12 { grid-column: span 12 / span 12; }
+            
+            /* 响应式网格跨度 */
+            @media (max-width: 768px) {
+                .grid-span-1, .grid-span-2, .grid-span-3, .grid-span-4, 
+                .grid-span-5, .grid-span-6, .grid-span-7, .grid-span-8, 
+                .grid-span-9, .grid-span-10, .grid-span-11, .grid-span-12 {
+                    grid-column: span 12 / span 12;
+                }
+            }
+            
+            @media (min-width: 769px) and (max-width: 1024px) {
+                .grid-span-8 { grid-column: span 6 / span 6; }
+                .grid-span-6 { grid-column: span 6 / span 6; }
+                .grid-span-4 { grid-column: span 6 / span 6; }
+                .grid-span-3 { grid-column: span 6 / span 6; }
+                .grid-span-2 { grid-column: span 4 / span 4; }
+            }
+            
+            .number-animation {
+                counter-reset: num 0;
+                animation: count 2s forwards ease-out;
+            }
+            @keyframes count {
+                to {
+                    counter-reset: num var(--num);
+                }
+            }
+            .number-animation::after {
+                content: counter(num);
+            }
+            .gradient-border {
+                position: relative;
+                border-radius: 0.5rem;
+            }
+            .gradient-border::before {
+                content: "";
+                position: absolute;
+                inset: -2px;
+                z-index: -1;
+                border-radius: 0.6rem;
+                background: linear-gradient(135deg, #1E40AF, #0EA5E9);
+                opacity: 0.6;
+                animation: rotate 6s linear infinite;
+            }
+            @keyframes rotate {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+            
+            /* 加载动画 */
+            .loading-skeleton {
+                background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+                background-size: 200% 100%;
+                animation: loading 1.5s infinite;
+            }
+            
+            @keyframes loading {
+                0% { background-position: 200% 0; }
+                100% { background-position: -200% 0; }
+            }
+            
+            /* 卡片悬停效果增强 */
+            .stat-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4);
+            }
+            
+            .chart-container:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+            }
+            
+            /* 按钮点击效果 */
+            .btn-click:active {
+                transform: scale(0.95);
+            }
+            
+            /* 数据更新动画 */
+            .data-update {
+                animation: dataUpdate 0.5s ease-in-out;
+            }
+            
+            @keyframes dataUpdate {
+                0% { opacity: 0.5; transform: scale(0.95); }
+                100% { opacity: 1; transform: scale(1); }
+            }
+            
+            /* 滚动条样式 */
+            ::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: #1E293B;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: #475569;
+                border-radius: 4px;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+                background: #64748B;
+            }
+            
+            /* 响应式优化 */
+            @media (max-width: 640px) {
+                .dashboard-grid {
+                    grid-template-columns: 1fr;
+                    grid-gap: 0.25rem;
+                }
+                
+                .stat-card, .chart-container {
+                    padding: 0.5rem;
+                }
+                
+                .text-3xl {
+                    font-size: 1.25rem;
+                }
+                
+                .text-4xl {
+                    font-size: 1.5rem;
+                }
+                
+                .h-\[400px\] {
+                    height: 250px;
+                }
+                
+                .h-\[350px\] {
+                    height: 200px;
+                }
+                
+                .h-\[300px\] {
+                    height: 180px;
+                }
+                
+                /* 五个卡片在小屏幕下换行显示 */
+                .flex.justify-between.items-stretch.gap-2 {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .flex.justify-between.items-stretch.gap-2 .stat-card {
+                    flex: none;
+                }
+                
+                /* 章节标题在小屏幕下的调整 */
+                .section-title {
+                    font-size: 1.75rem !important;
+                    letter-spacing: 0.05em;
+                }
+                
+                .section-title::after {
+                    width: 40px;
+                    height: 2px;
+                }
+            }
+            
+            @media (min-width: 641px) and (max-width: 1024px) {
+                .dashboard-grid {
+                    grid-gap: 0.5rem;
+                }
+                
+                .h-\[400px\] {
+                    height: 300px;
+                }
+                
+                .h-\[350px\] {
+                    height: 250px;
+                }
+                
+                .h-\[300px\] {
+                    height: 200px;
+                }
+                
+                /* 中等屏幕下五个卡片每行显示3个 */
+                .flex.justify-between.items-stretch.gap-2 {
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+                
+                .flex.justify-between.items-stretch.gap-2 .stat-card {
+                    flex: 1 1 calc(33.333% - 0.33rem);
+                    min-width: 0;
+                }
+                
+                /* 章节标题在中等屏幕下的调整 */
+                .section-title {
+                    font-size: 2.5rem !important;
+                }
+            }
+            
+            @media (min-width: 1025px) {
+                .h-\[400px\] {
+                    height: 400px;
+                }
+                
+                .h-\[350px\] {
+                    height: 350px;
+                }
+                
+                .h-\[300px\] {
+                    height: 300px;
+                }
+            }
+            
+            /* 全屏优化 */
+            .chart-container {
+                min-height: 200px;
+            }
+            
+            .stat-card {
+                min-height: 120px;
+            }
+            
+            /* 去除所有不必要的空白 */
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            main {
+                margin: 0;
+                padding: 0;
+            }
+            
+            /* 平滑滚动 */
+            html {
+                scroll-behavior: smooth;
+            }
+            
+            /* 标题特殊效果 */
+            h1.text-2xl.md\\:text-3xl.lg\\:text-4xl {
+                text-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
+                letter-spacing: 0.05em;
+                animation: titleGlow 3s ease-in-out infinite alternate;
+            }
+            
+            @keyframes titleGlow {
+                from {
+                    text-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
+                }
+                to {
+                    text-shadow: 0 0 30px rgba(30, 64, 175, 0.6), 0 0 40px rgba(14, 165, 233, 0.4);
+                }
+            }
+            
+            /* 章节标题样式 */
+            .section-title {
+                text-shadow: 0 0 25px rgba(30, 64, 175, 0.4);
+                letter-spacing: 0.1em;
+                animation: sectionTitleGlow 4s ease-in-out infinite alternate;
+                position: relative;
+            }
+            
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.8), transparent);
+                border-radius: 2px;
+            }
+            
+            @keyframes sectionTitleGlow {
+                from {
+                    text-shadow: 0 0 25px rgba(30, 64, 175, 0.4), 0 0 35px rgba(14, 165, 233, 0.3);
+                }
+                to {
+                    text-shadow: 0 0 35px rgba(30, 64, 175, 0.7), 0 0 45px rgba(14, 165, 233, 0.5), 0 0 55px rgba(249, 115, 22, 0.3);
+                }
+            }
+            
+            /* 标题图标动画 */
+            .w-10.h-10.rounded-full {
+                animation: iconRotate 10s linear infinite;
+            }
+            
+            @keyframes iconRotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            /* 导航栏装饰动画 */
+            .flex.items-center.space-x-2 .w-1.h-6 {
+                animation: pulse 2s infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 0.6; }
+                50% { opacity: 1; }
+            }
+            
+            /* 导航按钮样式 */
+            .nav-btn {
+                transition: all 0.3s ease;
+                pointer-events: auto !important;
+                cursor: pointer !important;
+            }
+            
+            .nav-btn:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+            }
+            
+            .nav-btn.active {
+                background-color: rgba(30, 64, 175, 0.3) !important;
+                color: #ffffff !important;
+                font-weight: 600;
+            }
+            
+            /* 非激活状态的导航按钮文字颜色 */
+            .nav-btn:not(.active) {
+                color: #e2e8f0 !important;
+            }
+            
+            .nav-btn:not(.active):hover {
+                color: #ffffff !important;
+                background-color: rgba(30, 64, 175, 0.2) !important;
+            }
+            
+            /* 导航栏响应式 */
+            @media (max-width: 768px) {
+                .nav-btn {
+                    padding: 0.25rem 0.5rem !important;
+                    font-size: 0.75rem;
+                }
+                
+                .nav-btn i {
+                    margin-right: 0.25rem !important;
+                }
+                
+                /* 小屏幕下隐藏中间装饰 */
+                .flex.justify-between.items-center .flex.items-center.space-x-2 {
+                    display: none;
+                }
+                
+                /* 小屏幕下导航按钮居中 */
+                .flex.justify-between.items-center {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+                
+                /* 小屏幕下标题调整 */
+                h1.text-3xl.md\\:text-4xl.lg\\:text-5xl {
+                    font-size: 1.5rem;
+                }
+                
+                .w-16.h-16 {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+                
+                .w-16.h-16 i {
+                    font-size: 1.25rem !important;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                /* 超小屏幕下进一步调整 */
+                .nav-btn {
+                    padding: 0.2rem 0.4rem !important;
+                    font-size: 0.7rem;
+                }
+                
+                h1.text-3xl.md\\:text-4xl.lg\\:text-5xl {
+                    font-size: 1.25rem;
+                }
+                
+                .w-16.h-16 {
+                    width: 2rem;
+                    height: 2rem;
+                }
+                
+                .w-16.h-16 i {
+                    font-size: 1rem !important;
+                }
+            }
+            
+            @media (min-width: 1025px) {
+                /* 大屏幕下保持大标题 */
+                h1.text-3xl.md\\:text-4xl.lg\\:text-5xl {
+                    font-size: 3rem;
+                }
+                
+                .w-16.h-16 {
+                    width: 4rem;
+                    height: 4rem;
+                }
+                
+                .w-16.h-16 i {
+                    font-size: 2rem !important;
+                }
+            }
+            
+            /* 领导展示专用样式 */
+            .leadership-card {
+                @apply bg-bg-card rounded-lg p-4 card-glow border border-primary/20 transition-all duration-300 hover:border-primary/40;
+                background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+                backdrop-filter: blur(10px);
+            }
+            
+            .leadership-title {
+                background: linear-gradient(135deg, #1E40AF, #0EA5E9);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+            }
+            
+            .data-highlight {
+                background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(14, 165, 233, 0.1));
+                border-left: 4px solid #1E40AF;
+                padding-left: 1rem;
+            }
+            
+            .presentation-mode {
+                animation: presentationPulse 3s ease-in-out infinite;
+            }
+            
+            @keyframes presentationPulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.02); }
+            }
+            
+            .export-btn {
+                background: linear-gradient(135deg, #F59E0B, #F97316);
+                color: white;
+                border: none;
+                transition: all 0.3s ease;
+            }
+            
+            .export-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            }
+            
+            /* 修复标题栏遮挡问题 */
+            .header {
+                height: auto;
+                min-height: 4rem;
+            }
+            
+            .main-content {
+                padding-top: 0 !important; /* 由JavaScript动态设置 */
+            }
+            
+            /* 强制修复遮挡问题 */
+            body {
+                padding-top: 0 !important;
+            }
+            
+            main.main-content {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            
+            /* 专门处理内容区域间距 */
+            .content-safe-area {
+                padding-top: 0px !important;
+                margin-top: 0 !important;
+            }
+            
+            .section-header {
+                padding-top: 10px !important;
+                margin-top: 0 !important;
+                scroll-margin-top: 140px !important;
+            }
+            
+            /* 确保所有section都有足够的滚动边距 */
+            section {
+                scroll-margin-top: 140px !important;
+            }
+            
+            @media (min-width: 768px) {
+                .header {
+                    min-height: 5rem;
+                }
+            }
+            
+            @media (min-width: 1024px) {
+                .header {
+                    min-height: 6rem;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-bg-dark text-light min-h-screen">
+    <!-- 页面加载动画 -->
+    <div id="loading-screen"
+        class="fixed inset-0 bg-bg-dark flex items-center justify-center z-40 transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4">
+            </div>
+            <p class="text-primary text-lg">正在加载统计数据...</p>
+        </div>
+    </div>
+
+    <!-- 顶部导航 -->
+    <header class="bg-dark/80 backdrop-blur-md border-b border-primary/20 sticky top-0 z-50 header">
+        <!-- 主标题栏 -->
+        <div class="px-1 py-2 flex justify-between items-center">
+            <!-- 左侧空白区域，保持布局平衡 -->
+            <div class="w-32"></div>
+
+            <!-- 居中标题 -->
+            <div class="flex items-center space-x-4 justify-center flex-1">
+                <div
+                    class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                    <i class="fa fa-bar-chart text-white text-2xl"></i>
+                </div>
+                <div class="text-center">
+                    <h1
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                        2024年岷县国民经济和社会发展统计可视化公报
+                    </h1>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <button
+                    class="bg-primary/20 hover:bg-primary/30 text-primary px-3 py-1 rounded-lg transition-colors btn-click text-sm"
+                    id="fullscreen-btn">
+                    <i class="fa fa-expand mr-1"></i>全屏
+                </button>
+                <button
+                    class="bg-success/20 hover:bg-success/30 text-success px-3 py-1 rounded-lg transition-colors btn-click text-sm">
+                    <i class="fa fa-refresh mr-1"></i>刷新数据
+                </button>
+                <button
+                    class="bg-accent/20 hover:bg-accent/30 text-accent px-3 py-1 rounded-lg transition-colors btn-click text-sm"
+                    id="presentation-btn">
+                    <i class="fa fa-play mr-1"></i>演示模式
+                </button>
+                <button
+                    class="bg-warning/20 hover:bg-warning/30 text-warning px-3 py-1 rounded-lg transition-colors btn-click text-sm"
+                    id="export-btn">
+                    <i class="fa fa-download mr-1"></i>导出报告
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen main-content content-safe-area" id="main-content" style="padding-top: 0px !important;">
+        <div class="px-1 py-1">
+            <!-- 数据概览 -->
+            <section id="overview" class="mb-3 section-header" style="padding-top: 0;">
+                <div class="flex justify-end mb-2">
+                    <div class="text-xs text-gray-400">
+                        最后更新时间: <span class="text-primary">2025-07-29 10:30:00</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">地区生产总值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥95<span class="text-xl">亿</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.1%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">固定资产投资</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥186.3<span class="text-xl">亿</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>8.2%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">一般公共预算收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥3.8<span class="text-xl">亿</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-money"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>11.12%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">社会消费品零售总额</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥28.5<span class="text-xl">亿</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>7.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二行关键指标 -->
+                <div class="dashboard-grid mt-2">
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">常住人口</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">41.79<span class="text-xl">万</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-danger">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>0.1万</span>
+                            <span class="text-gray-400 text-sm ml-1">同比减少</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城镇居民人均可支配收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥33,979</h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-money"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.1%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">农村居民人均可支配收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">¥11,490</h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-home"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>8.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城镇化率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">34.84<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>1.47%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比提高</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 经济发展 -->
+            <section id="economy" class="mb-3">
+                <div class="text-center mb-4">
+                    <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
+                        经济发展
+                    </h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-8">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">近五年地区生产总值及增速</h3>
+                            <div class="flex space-x-2">
+                                <button
+                                    class="text-xs bg-primary/20 hover:bg-primary/30 text-primary px-2 py-1 rounded transition-colors btn-click">
+                                    柱状图
+                                </button>
+                                <button
+                                    class="text-xs bg-primary/10 text-primary/70 px-2 py-1 rounded transition-colors btn-click">
+                                    折线图
+                                </button>
+                            </div>
+                        </div>
+                        <div class="h-[400px]">
+                            <canvas id="gdpChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">三次产业结构</h3>
+                            <div class="text-xs text-gray-400">2024年</div>
+                        </div>
+                        <div class="h-[400px] flex items-center justify-center">
+                            <canvas id="industryStructureChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid mt-2">
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">工业增加值</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="industryValueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">固定资产投资</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="investmentChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold">财政收支</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="financeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 农业生产 -->
+            <section id="agriculture" class="mb-3">
+                <div class="text-center mb-4">
+                    <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-primary to-secondary mb-2 section-title">
+                        农业生产
+                    </h2>
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">2024年主要农作物种植面积</h3>
+                            <div class="text-xs text-gray-400">单位:万亩</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="cropAreaChart"></canvas>
+                        </div>
+                    </div>
+
+
+
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">主要农产品产量</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:万吨</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="agriculturalProductsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">2020-2024年粮食产量</h3>
+                            <div class="text-xs text-gray-400">单位:万吨</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="grainProductionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 牲畜存出栏统计图 -->
+
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">牲畜存出栏统计</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:万头/万只</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="livestockBarLineChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="dashboard-grid mt-2">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">粮食总产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">6.98<span class="text-xl">万吨</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>1.0%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">中药材产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">13.17<span class="text-xl">万吨</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-medkit"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>9.34%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">蔬菜产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">0.27<span class="text-xl">万吨</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-carrot"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>23.33%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">油料产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1.14<span class="text-xl">万吨</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-seedling"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>8.89%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">鲜蛋产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">0.234<span class="text-xl">万吨</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                <i class="fa fa-egg"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>9.1%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">牛奶产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">0.156<span class="text-xl">万吨</span>
+                                </h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-milk"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>11.4%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 社会民生 -->
+            <section id="social" class="mb-3">
+                <div class="text-center mb-4">
+                    <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-success mb-2 section-title">
+                        社会民生
+                    </h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">居民收入与消费</h3>
+                            <div class="text-xs text-gray-400">2020-2024年 单位:元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="incomeConsumptionChart"></canvas>
+                        </div>
+                    </div>
+
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">社会保险参保人数统计</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:万人</div>
+                        </div>
+                        <div class="h-[400px]">
+                            <canvas id="insuranceChart"></canvas>
+                        </div>
+                    </div>
+
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">教育与医疗资源</h3>
+                            <div class="text-xs text-gray-400">2020-2024年</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="educationHealthChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">社会救助与补贴统计</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:万人/万元</div>
+                        </div>
+                        <div class="h-[400px]">
+                            <canvas id="assistanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid mt-2">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">九年义务教育巩固率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">100<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">保持100%巩固率</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">高中阶段毛入学率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">96.33<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-university"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">较上年提高</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">在校学生总数</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">9.21<span class="text-xl">万</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">各级各类学校400所</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">高考录取率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">97<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-trophy"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>1%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比提高</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城乡居民医疗保险基金支出</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">4.3<span class="text-xl">亿</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>20.4%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 财政金融 -->
+            <section id="finance" class="mb-3">
+                <div class="text-center mb-4">
+                    <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-warning via-accent to-primary mb-2 section-title">
+                        财政金融
+                    </h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">财政收支情况</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="financeOverviewChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">金融机构存贷款余额</h3>
+                            <div class="text-xs text-gray-400">2024年末 单位:亿元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="financialInstitutionsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid mt-2">
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">一般公共预算收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3.8<span class="text-xl">亿</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-money"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>11.12%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">一般公共预算支出</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">45.34<span class="text-xl">亿</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-credit-card"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>2.31%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">金融机构存款余额</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">197.24<span class="text-xl">亿</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-bank"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.46%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-3">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">金融机构贷款余额</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">196.46<span class="text-xl">亿</span>
+                                </h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-handshake-o"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.28%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 资源环境 -->
+            <section id="environment" class="mb-3">
+                <div class="text-center mb-4">
+                    <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-secondary to-primary mb-2 section-title">
+                        资源环境
+                    </h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">空气质量</h3>
+                            <div class="text-xs text-gray-400">2024年 优良天数比例</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="airQualityChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">能源消耗</h3>
+                            <div class="text-xs text-gray-400">2024年 单位:标准煤万吨</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="energyConsumptionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">绿化与环保投资</h3>
+                            <div class="text-xs text-gray-400">2020-2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="greenInvestmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid mt-2">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">地表水水质达标率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">100<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-tint"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">集中式饮用水水源地水质达标率100%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">森林覆盖率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">11.04<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-tree"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">林地面积134.6万亩</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">空气质量优良天数比例</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">95.44<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">PM2.5年均浓度16微克/立方米</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">生产安全事故</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3<span class="text-xl">起</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <span class="text-sm">死亡2人，直接经济损失58.6万元</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">草原植被覆盖率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">88.05<span class="text-xl">%</span></h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-pagelines"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <span class="text-sm">草原面积190.65万亩</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </div>
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 bg-primary/80 hover:bg-primary text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-40 btn-click">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark/80 backdrop-blur-md border-t border-primary/20 py-3">
+        <div class="px-1 text-center text-gray-400 text-xs">
+            <p>© 2025 岷县大数据中心 | 领导决策支持系统 | 数据更新时间：<span id="footer-update-time">2025-07-29 10:30:00</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 更新日期和时间
+        function updateDateTime() {
+            const now = new Date();
+
+            // 更新页脚时间
+            const footerTimeElement = document.getElementById('footer-update-time');
+            if (footerTimeElement) {
+                footerTimeElement.textContent = now.toLocaleString('zh-CN');
+            }
+        }
+
+        // 刷新数据功能
+        function refreshData() {
+            // 显示加载状态
+            const refreshBtn = document.querySelector('button:has(.fa-refresh)');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-1"></i>刷新中...';
+            refreshBtn.disabled = true;
+
+            // 模拟数据刷新
+            setTimeout(() => {
+                // 更新最后更新时间
+                const now = new Date();
+                const updateTimeElement = document.querySelector('.text-sm.text-gray-400 span');
+                if (updateTimeElement) {
+                    updateTimeElement.textContent = now.toLocaleString('zh-CN');
+                }
+
+                // 恢复按钮状态
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+
+                // 显示成功提示
+                showNotification('数据刷新成功！', 'success');
+            }, 2000);
+        }
+
+        // 显示通知
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+
+            const bgColor = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-primary';
+            notification.classList.add(bgColor, 'text-white');
+
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fa ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} mr-2"></i>
+                    <span>${message}</span>
+                    <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // 动画显示
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // 自动隐藏
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // 数字动画效果
+        function animateNumbers() {
+            const numberElements = document.querySelectorAll('.text-3xl, .text-4xl');
+            numberElements.forEach(element => {
+                const text = element.textContent;
+                const number = parseFloat(text.replace(/[^\d.]/g, ''));
+                if (!isNaN(number)) {
+                    element.style.setProperty('--num', number);
+                    element.classList.add('number-animation');
+                }
+            });
+        }
+
+        // 图表切换功能
+        function setupChartToggles() {
+            // GDP图表切换
+            const gdpButtons = document.querySelectorAll('.chart-container button');
+            gdpButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const container = this.closest('.chart-container');
+                    const buttons = container.querySelectorAll('button');
+                    buttons.forEach(btn => {
+                        btn.classList.remove('bg-primary/30');
+                        btn.classList.add('bg-primary/10', 'text-primary/70');
+                    });
+                    this.classList.remove('bg-primary/10', 'text-primary/70');
+                    this.classList.add('bg-primary/30');
+                });
+            });
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 立即调整间距
+            adjustContentSpacing();
+
+            // 更新日期和时间
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+
+            // 隐藏加载动画
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 300);
+                }
+            }, 500);
+
+            // 初始化其他功能
+            setupBackToTop();
+            setupKeyboardShortcuts();
+            setupFullscreen();
+            setupTitleAnimation();
+            setupLeadershipFeatures();
+
+            // 多次调整内容间距，确保生效
+            setTimeout(adjustContentSpacing, 100);
+            setTimeout(adjustContentSpacing, 500);
+            setTimeout(adjustContentSpacing, 1000);
+
+            // 渲染图表
+            renderCharts();
+        });
+
+        // 错误处理
+        window.addEventListener('error', function (e) {
+            console.error('页面错误:', e.error);
+            showNotification('页面加载出现错误，请刷新重试', 'error');
+        });
+
+        // 网络状态监听
+        window.addEventListener('online', function () {
+            showNotification('网络连接已恢复', 'success');
+        });
+
+        window.addEventListener('offline', function () {
+            showNotification('网络连接已断开', 'error');
+        });
+
+        // 返回顶部功能
+        function setupBackToTop() {
+            const backToTopBtn = document.getElementById('back-to-top');
+
+            // 滚动监听
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                }
+            });
+
+            // 点击返回顶部
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // 键盘快捷键
+        function setupKeyboardShortcuts() {
+            document.addEventListener('keydown', function (e) {
+                // Ctrl + R 刷新数据
+                if (e.ctrlKey && e.key === 'r') {
+                    e.preventDefault();
+                    refreshData();
+                }
+
+                // F11 全屏切换
+                if (e.key === 'F11') {
+                    e.preventDefault();
+                    toggleFullscreen();
+                }
+
+                // Home 键返回顶部
+                if (e.key === 'Home') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // End 键滚动到底部
+                if (e.key === 'End') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+
+        // 全屏切换功能
+        function setupFullscreen() {
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+            fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+            // 监听全屏状态变化
+            document.addEventListener('fullscreenchange', updateFullscreenButton);
+            document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+            document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+            document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement &&
+                !document.webkitFullscreenElement &&
+                !document.mozFullScreenElement &&
+                !document.msFullscreenElement) {
+                // 进入全屏
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.msRequestFullscreen) {
+                    document.documentElement.msRequestFullscreen();
+                }
+            } else {
+                // 退出全屏
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        function updateFullscreenButton() {
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const isFullscreen = !!(document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.mozFullScreenElement ||
+                document.msFullscreenElement);
+
+            if (isFullscreen) {
+                fullscreenBtn.innerHTML = '<i class="fa fa-compress mr-1"></i>退出全屏';
+            } else {
+                fullscreenBtn.innerHTML = '<i class="fa fa-expand mr-1"></i>全屏';
+            }
+        }
+
+        // 导航功能
+        function setupNavigation() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('section[id]');
+
+            console.log('导航按钮数量:', navButtons.length);
+            console.log('页面区域数量:', sections.length);
+
+            // 测试导航功能
+            function testNavigation() {
+                console.log('测试导航功能...');
+                navButtons.forEach((btn, index) => {
+                    console.log(`按钮 ${index + 1}:`, btn.getAttribute('data-section'));
+                });
+            }
+
+            // 导航按钮点击事件
+            navButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetSection = this.getAttribute('data-section');
+                    console.log('点击导航按钮:', targetSection);
+
+                    // 更新按钮状态
+                    navButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.add('bg-primary/10');
+                    });
+                    this.classList.add('active');
+                    this.classList.remove('bg-primary/10');
+
+                    // 滚动到目标区域
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        console.log('找到目标元素:', targetSection);
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 10;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        console.error('未找到目标元素:', targetSection);
+                    }
+                });
+
+                // 添加鼠标悬停效果
+                button.addEventListener('mouseenter', function () {
+                    console.log('鼠标悬停在按钮上:', this.getAttribute('data-section'));
+                });
+            });
+
+            // 执行测试
+            testNavigation();
+
+            // 滚动监听，自动更新当前激活的导航按钮
+            window.addEventListener('scroll', function () {
+                const scrollPosition = window.scrollY + 100;
+                const headerHeight = document.querySelector('header').offsetHeight;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerHeight;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        // 更新导航按钮状态
+                        navButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.classList.add('bg-primary/10');
+                        });
+
+                        const activeButton = document.querySelector(`[data-section="${sectionId}"]`);
+                        if (activeButton) {
+                            activeButton.classList.add('active');
+                            activeButton.classList.remove('bg-primary/10');
+                        }
+                    }
+                });
+            });
+        }
+
+        // 图表渲染函数
+        function renderCharts() {
+            // 近五年地区生产总值及增速
+            const gdpCtx = document.getElementById('gdpChart').getContext('2d');
+            new Chart(gdpCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: '地区生产总值(亿元)',
+                            data: [67.2, 72.8, 78.5, 89.5, 95.0],
+                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '同比增长(%)',
+                            data: [5.2, 8.3, 7.8, 14.0, 6.1],
+                            type: 'line',
+                            yAxisID: 'y1',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: '生产总值(亿元)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: false,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '增长率(%)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 三次产业结构
+            const industryStructureCtx = document.getElementById('industryStructureChart').getContext('2d');
+            new Chart(industryStructureCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['第一产业', '第二产业', '第三产业'],
+                    datasets: [{
+                        data: [14.5, 15.9, 64.6],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(30, 64, 175, 0.8)',
+                            'rgba(249, 115, 22, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(249, 115, 22, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value}亿元 (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            // 工业增加值
+            const industryValueCtx = document.getElementById('industryValueChart').getContext('2d');
+            new Chart(industryValueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                    datasets: [{
+                        label: '规模以上工业增加值(亿元)',
+                        data: [6.8, 7.2, 8.5, 7.9, 8.3, 8.8, 9.2, 9.6, 10.1, 9.8, 10.3, 10.6],
+                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        borderColor: 'rgba(30, 64, 175, 1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 固定资产投资
+            const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+            new Chart(investmentCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['第一产业', '第二产业', '第三产业'],
+                    datasets: [{
+                        label: '固定资产投资(亿元)',
+                        data: [25.3, 78.6, 82.4],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(30, 64, 175, 0.7)',
+                            'rgba(249, 115, 22, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(249, 115, 22, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 财政收支
+            const financeCtx = document.getElementById('financeChart').getContext('2d');
+            new Chart(financeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                    datasets: [
+                        {
+                            label: '财政收入(亿元)',
+                            data: [1.2, 1.3, 1.6, 1.4, 1.5, 1.7, 1.6, 1.8, 1.9, 1.8, 1.9, 2.0],
+                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '财政支出(亿元)',
+                            data: [4.2, 4.8, 5.6, 5.1, 5.4, 6.2, 5.8, 6.3, 6.7, 6.4, 6.8, 7.1],
+                            backgroundColor: 'rgba(249, 115, 22, 0.7)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 居民收入与消费
+            const incomeConsumptionCtx = document.getElementById('incomeConsumptionChart').getContext('2d');
+            new Chart(incomeConsumptionCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: '城镇居民人均可支配收入(元)',
+                            data: [28500, 29800, 31200, 32318, 33979],
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '农村居民人均可支配收入(元)',
+                            data: [8900, 9500, 10100, 10610, 11490],
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '城镇居民人均消费支出(元)',
+                            data: [21000, 21800, 22600, 23277, 24254],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '农村居民人均消费支出(元)',
+                            data: [8500, 9000, 9600, 10205, 10727],
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 教育与医疗资源
+            const educationHealthCtx = document.getElementById('educationHealthChart').getContext('2d');
+            new Chart(educationHealthCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: '学校数量(所)',
+                            data: [185, 187, 189, 192, 195],
+                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '医院数量(所)',
+                            data: [28, 30, 32, 34, 36],
+                            backgroundColor: 'rgba(249, 115, 22, 0.7)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '教师人数(人)',
+                            data: [6542, 6785, 6945, 7123, 7345],
+                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '医生人数(人)',
+                            data: [1254, 1345, 1423, 1542, 1654],
+                            backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '机构数量',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '人员数量',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 空气质量
+            const airQualityCtx = document.getElementById('airQualityChart').getContext('2d');
+            new Chart(airQualityCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                    datasets: [{
+                        label: '空气质量优良天数比例(%)',
+                        data: [95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44],
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 90,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 能源消耗
+            const energyConsumptionCtx = document.getElementById('energyConsumptionChart').getContext('2d');
+            new Chart(energyConsumptionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['第一产业', '第二产业', '第三产业', '居民生活'],
+                    datasets: [{
+                        label: '能源消费量(标准煤万吨)',
+                        data: [12.5, 86.3, 42.7, 35.6],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(30, 64, 175, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 绿化与环保投资
+            const greenInvestmentCtx = document.getElementById('greenInvestmentChart').getContext('2d');
+            new Chart(greenInvestmentCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: '城市绿化投资额(亿元)',
+                            data: [2.5, 2.8, 3.2, 3.5, 4.1],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '环保投资额(亿元)',
+                            data: [3.2, 3.6, 4.1, 4.8, 5.6],
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2020-2024年粮食产量
+            const grainProductionCtx = document.getElementById('grainProductionChart').getContext('2d');
+            new Chart(grainProductionCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: '粮食总产量(万吨)',
+                            data: [6.67, 6.82, 6.75, 6.91, 6.98],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 主要农产品产量
+            const agriculturalProductsCtx = document.getElementById('agriculturalProductsChart').getContext('2d');
+            new Chart(agriculturalProductsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['粮食', '中药材', '蔬菜', '油料'],
+                    datasets: [
+                        {
+                            label: '主要农产品产量(万吨)',
+                            data: [6.98, 13.17, 0.27, 1.14],
+                            backgroundColor: [
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(139, 92, 246, 0.7)',
+                                'rgba(249, 115, 22, 0.7)',
+                                'rgba(249, 115, 22, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(139, 92, 246, 1)',
+                                'rgba(249, 115, 22, 1)',
+                                'rgba(249, 115, 22, 1)'
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 财政收支情况
+            const financeOverviewCtx = document.getElementById('financeOverviewChart').getContext('2d');
+            new Chart(financeOverviewCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['税收收入', '非税收入', '一般公共预算支出', '民生支出'],
+                    datasets: [
+                        {
+                            label: '金额(亿元)',
+                            data: [1.87, 1.9, 45.34, 39.76],
+                            backgroundColor: [
+                                'rgba(30, 64, 175, 0.7)',
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(249, 115, 22, 0.7)',
+                                'rgba(139, 92, 246, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(30, 64, 175, 1)',
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(249, 115, 22, 1)',
+                                'rgba(139, 92, 246, 1)'
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 金融机构存贷款余额
+            const financialInstitutionsCtx = document.getElementById('financialInstitutionsChart').getContext('2d');
+            new Chart(financialInstitutionsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['住户存款', '企业存款', '住户贷款', '企业贷款'],
+                    datasets: [{
+                        data: [163.95, 16.86, 90.07, 106.39],
+                        backgroundColor: [
+                            'rgba(30, 64, 175, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(249, 115, 22, 0.8)',
+                            'rgba(139, 92, 246, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800, // 动画时长
+                        easing: 'easeOutQuart', // 动画曲线
+                    },
+                    hover: {
+                        animationDuration: 600, // 悬停动画时长
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    return `${label}: ${value}亿元`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            // 城镇化率（2020-2024）
+            const urbanizationRateCanvas = document.getElementById('urbanizationRateChart');
+            if (urbanizationRateCanvas) {
+                const urbanizationRateCtx = urbanizationRateCanvas.getContext('2d');
+                new Chart(urbanizationRateCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2020', '2021', '2022', '2023', '2024'],
+                        datasets: [{
+                            label: '城镇化率(%)',
+                            data: [27.14, 31.45, 32.32, 33.37, 34.84],
+                            borderColor: 'rgba(14, 165, 233, 1)',
+                            backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(14, 165, 233, 1)',
+                            pointRadius: 3,
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            duration: 1800, // 动画时长
+                            easing: 'easeOutQuart', // 动画曲线
+                        },
+                        hover: {
+                            animationDuration: 600, // 悬停动画时长
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                min: 25,
+                                max: 36,
+                                ticks: { color: 'rgba(255,255,255,0.7)' },
+                                grid: { color: 'rgba(255,255,255,0.1)' }
+                            },
+                            x: {
+                                ticks: { color: 'rgba(255,255,255,0.7)' },
+                                grid: { color: 'rgba(255,255,255,0.1)' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 牲畜存出栏统计图
+            const livestockBarLineCtx = document.getElementById('livestockBarLineChart').getContext('2d');
+            new Chart(livestockBarLineCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['猪', '牛', '羊', '禽'],
+                    datasets: [
+                        {
+                            label: '存栏量',
+                            data: [12.5, 3.2, 8.6, 45.3],
+                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '出栏量',
+                            data: [15.8, 2.8, 9.2, 52.1],
+                            backgroundColor: 'rgba(249, 115, 22, 0.7)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '比上年增长率(%)',
+                            data: [-2.1, 1.5, 0.8, -0.5],
+                            type: 'line',
+                            yAxisID: 'y1',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            tension: 0.3,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointRadius: 4,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    hover: {
+                        animationDuration: 600,
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '数量(万头/万只)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '增长率(%)',
+                                color: 'rgba(16, 185, 129, 1)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                color: 'rgba(16, 185, 129, 1)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2024年主要农作物种植面积
+            const cropAreaCtx = document.getElementById('cropAreaChart').getContext('2d');
+            new Chart(cropAreaCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['粮食作物', '夏粮', '秋粮', '经济作物', '马铃薯', '中药材', '蔬菜'],
+                    datasets: [
+                        {
+                            label: '面积(万亩)',
+                            data: [26.83, 10.5, 16.33, 48.47, 16.27, 41.9, 0.49],
+                            backgroundColor: [
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(30, 64, 175, 0.7)',
+                                'rgba(30, 64, 175, 0.5)',
+                                'rgba(249, 115, 22, 0.7)',
+                                'rgba(139, 92, 246, 0.7)',
+                                'rgba(139, 92, 246, 0.5)',
+                                'rgba(249, 115, 22, 0.5)'
+                            ],
+                            borderColor: [
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(30, 64, 175, 1)',
+                                'rgba(30, 64, 175, 0.8)',
+                                'rgba(249, 115, 22, 1)',
+                                'rgba(139, 92, 246, 1)',
+                                'rgba(139, 92, 246, 0.8)',
+                                'rgba(249, 115, 22, 0.8)'
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    hover: {
+                        animationDuration: 600,
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.parsed.y + ' 万亩';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 社会保险参保人数统计
+            const insuranceChartCtx = document.getElementById('insuranceChart').getContext('2d');
+            new Chart(insuranceChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        '企业职工养老保险',
+                        '机关事业单位养老保险',
+                        '失业保险',
+                        '工伤保险',
+                        '城乡居民基本养老保险',
+                        '生育保险',
+                        '城镇职工基本医疗保险',
+                        '城乡居民基本医疗保险'
+                    ],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [1.10 - 0.0416, 1.50 - 0.019, 1.51 - 0.0449, 1.58 - 0.0494, 26.89, 1.77 - 0.017, 2.19 - 0.015, 42.62 + 0.073],
+                            backgroundColor: 'rgba(30, 64, 175, 0.5)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [1.10, 1.50, 1.51, 1.58, 26.89, 1.77, 2.19, 42.62],
+                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    hover: {
+                        animationDuration: 600,
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '参保人数(万人)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.parsed.y + ' 万人';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 社会救助与补贴统计
+            const assistanceChartCtx = document.getElementById('assistanceChart').getContext('2d');
+            new Chart(assistanceChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        '城市低保',
+                        '农村低保',
+                        '特困供养',
+                        '孤儿保障',
+                        '临时救助',
+                        '残疾人补贴',
+                        '经济困难老人补贴'
+                    ],
+                    datasets: [
+                        {
+                            label: '人数(万人)',
+                            data: [-0.33, -4.50, -0.32, -0.006, -2.03, -0.85, -0.22],
+                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '金额(万元)',
+                            data: [2478, 16910.14, 3271.46, 77.11, 2380.88, 1338.64, 355.12],
+                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    hover: {
+                        animationDuration: 600,
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    let val = Math.abs(context.parsed.x);
+                                    if (context.dataset.label === '人数(万人)') {
+                                        label += val + ' 万人';
+                                    } else {
+                                        label += val + ' 万元';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '金额(万元) ← 人数(万人)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: value => Math.abs(value)
+                            }
+                        },
+                        y: {
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 标题动画效果
+        function setupTitleAnimation() {
+            const title = document.querySelector('h1');
+            if (title) {
+                // 添加进入动画
+                title.style.opacity = '0';
+                title.style.transform = 'translateY(-20px)';
+
+                setTimeout(() => {
+                    title.style.transition = 'all 1s ease-out';
+                    title.style.opacity = '1';
+                    title.style.transform = 'translateY(0)';
+                }, 500);
+            }
+        }
+
+        // 测试导航功能
+        function testNavClick() {
+            console.log('=== 开始测试导航功能 ===');
+
+            // 测试第一个导航按钮
+            const firstNavBtn = document.querySelector('.nav-btn[data-section="overview"]');
+            if (firstNavBtn) {
+                console.log('找到第一个导航按钮，模拟点击...');
+                firstNavBtn.click();
+
+                // 检查是否成功滚动
+                setTimeout(() => {
+                    const scrollPosition = window.scrollY;
+                    console.log('当前滚动位置:', scrollPosition);
+
+                    if (scrollPosition > 0) {
+                        console.log('✅ 导航功能正常！页面已滚动');
+                    } else {
+                        console.log('❌ 导航功能异常！页面未滚动');
+                    }
+                }, 1000);
+            } else {
+                console.log('❌ 未找到导航按钮');
+            }
+
+            console.log('=== 测试完成 ===');
+        }
+
+        // 领导展示专用功能
+        function setupLeadershipFeatures() {
+            // 调整内容区域间距
+            adjustContentSpacing();
+
+            // 演示模式
+            const presentationBtn = document.getElementById('presentation-btn');
+            let demoScrollActive = false;
+            let demoScrollDirection = 'down';
+            let demoScrollInterval = null;
+            function startDemoScroll() {
+                demoScrollActive = true;
+                demoScrollDirection = 'down';
+                function stepScroll() {
+                    if (!demoScrollActive) return;
+                    const step = 2; // 每次滚动的像素
+                    if (demoScrollDirection === 'down') {
+                        if (window.scrollY + window.innerHeight < document.body.scrollHeight - 2) {
+                            window.scrollBy(0, step);
+                        } else {
+                            demoScrollDirection = 'up';
+                            setTimeout(stepScroll, 1200); // 到底部停留1.2秒
+                            return;
+                        }
+                    } else {
+                        if (window.scrollY > 2) {
+                            window.scrollBy(0, -step);
+                        } else {
+                            demoScrollDirection = 'down';
+                            setTimeout(stepScroll, 1200); // 到顶部停留1.2秒
+                            return;
+                        }
+                    }
+                    demoScrollInterval = setTimeout(stepScroll, 16); // 约60帧/秒
+                }
+                stepScroll();
+            }
+            function stopDemoScroll() {
+                demoScrollActive = false;
+                if (demoScrollInterval) clearTimeout(demoScrollInterval);
+            }
+            if (presentationBtn) {
+                presentationBtn.addEventListener('click', function () {
+                    const isActive = this.classList.contains('active');
+                    if (isActive) {
+                        this.classList.remove('active');
+                        this.innerHTML = '<i class="fa fa-play mr-1"></i>演示模式';
+                        //document.body.classList.remove('presentation-mode');
+                        showNotification('演示模式已关闭', 'info');
+                        stopDemoScroll();
+                    } else {
+                        this.classList.add('active');
+                        this.innerHTML = '<i class="fa fa-pause mr-1"></i>演示模式';
+                        //document.body.classList.add('presentation-mode');
+                        showNotification('演示模式已开启', 'success');
+                        startDemoScroll();
+                    }
+                });
+            }
+
+            // 导出报告功能
+            const exportBtn = document.getElementById('export-btn');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', function () {
+                    this.innerHTML = '<i class="fa fa-spinner fa-spin mr-1"></i>导出中...';
+                    this.disabled = true;
+
+                    // 模拟导出过程
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fa fa-download mr-1"></i>导出报告';
+                        this.disabled = false;
+                        showNotification('报告导出成功！', 'success');
+
+                        // 创建下载链接
+                        const data = generateReportData();
+                        const blob = new Blob([data], { type: 'text/html' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `岷县2024年经济统计报告_${new Date().toISOString().split('T')[0]}.html`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 2000);
+                });
+            }
+        }
+
+        // 调整内容区域间距
+        function adjustContentSpacing() {
+            const header = document.querySelector('.header');
+            const mainContent = document.getElementById('main-content');
+
+            if (header && mainContent) {
+                // 获取标题栏的实际高度
+                const headerHeight = header.offsetHeight;
+
+                // 设置足够的安全间距（标题栏高度 + 额外间距）
+                const safePadding = 0; // 只加16px间距
+
+                console.log('标题栏高度:', headerHeight, '设置间距:', safePadding);
+
+                // 强制应用间距（使用setProperty确保优先级）
+                mainContent.style.setProperty('padding-top', `${safePadding}px`, 'important');
+
+                // 确保内容可见
+                mainContent.style.setProperty('min-height', `calc(100vh - ${safePadding}px)`, 'important');
+
+                // 添加调试信息
+                console.log('已设置main-content的padding-top为:', mainContent.style.paddingTop);
+
+                // 确保页面滚动到顶部
+                window.scrollTo(0, 0);
+            } else {
+                console.error('未找到header或main-content元素');
+            }
+        }
+
+        // 监听窗口大小变化，重新调整间距
+        window.addEventListener('resize', adjustContentSpacing);
+
+        // 生成报告数据
+        function generateReportData() {
+            const reportData = {
+                title: '岷县2024年国民经济和社会发展统计报告',
+                date: new Date().toLocaleDateString('zh-CN'),
+                data: {
+                    gdp: '95亿元',
+                    growth: '6.1%',
+                    population: '41.79万人',
+                    income: '33,979元'
+                }
+            };
+
+            return `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>${reportData.title}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .data-table th, .data-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .data-table th { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>${reportData.title}</h1>
+        <p>生成时间：${reportData.date}</p>
+    </div>
+    <table class="data-table">
+        <tr><th>指标</th><th>数值</th></tr>
+        <tr><td>地区生产总值</td><td>${reportData.data.gdp}</td></tr>
+        <tr><td>同比增长率</td><td>${reportData.data.growth}</td></tr>
+        <tr><td>常住人口</td><td>${reportData.data.population}</td></tr>
+        <tr><td>城镇居民人均可支配收入</td><td>${reportData.data.income}</td></tr>
+    </table>
+</body>
+</html>`;
+        }
+    </script>
+</body>
+
+</html>
