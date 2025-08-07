@@ -963,132 +963,178 @@
                     </h2>-->
                 </div>
 
-                <div class="dashboard-grid">
-                    <div class="chart-container grid-span-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">居民收入与消费</h3>
-                            <div class="text-xs text-gray-400">2020-2024年 单位:元</div>
+                <!-- 居民收入消费统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城镇居民人均可支配收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3.40<span class="text-xl">万</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长5.1%</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-home"></i>
+                            </div>
                         </div>
-                        <div class="h-[350px]">
-                            <canvas id="incomeConsumptionChart"></canvas>
-                        </div>
-                    </div>
-
-
-                    <div class="chart-container grid-span-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">社会保险参保人数统计</h3>
-                            <div class="text-xs text-gray-400">2024年 单位:万人</div>
-                        </div>
-                        <div class="h-[400px]">
-                            <canvas id="insuranceChart"></canvas>
-                        </div>
-                    </div>
-
-
-                    <div class="chart-container grid-span-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">教育与医疗资源</h3>
-                            <div class="text-xs text-gray-400">2020-2024年</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="educationHealthChart"></canvas>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.1%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
                         </div>
                     </div>
 
-                    <div class="chart-container grid-span-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">社会救助与补贴统计</h3>
-                            <div class="text-xs text-gray-400">2024年 单位:万人/万元</div>
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">农村居民人均可支配收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1.15<span class="text-xl">万</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长8.3%</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-leaf"></i>
+                            </div>
                         </div>
-                        <div class="h-[400px]">
-                            <canvas id="assistanceChart"></canvas>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>8.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城乡收入比值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">2.96<span class="text-xl">:1</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">比上年缩小0.09</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                <i class="fa fa-balance-scale"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>收入差距缩小</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城镇居民恩格尔系数</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">30.4<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">比上年增加0.3个百分点</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>0.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">小幅上升</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">农村居民恩格尔系数</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">34.2<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">比上年降低0.3个百分点</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-cutlery"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>0.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">下降</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城乡居民基本医疗保险参保</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">42.62<span class="text-xl">万</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">比上年减少0.73万人</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>0.73万</span>
+                            <span class="text-gray-400 text-sm ml-1">减少</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="dashboard-grid mt-2">
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">九年义务教育巩固率</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">100<span class="text-xl">%</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-graduation-cap"></i>
-                            </div>
+                <!-- 统计图表 -->
+                <div class="dashboard-grid">
+                    <!-- 城乡居民收入消费对比 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">城乡居民收入消费对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:元</div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <span class="text-sm">保持100%巩固率</span>
+                        <div class="h-[350px]">
+                            <canvas id="incomeComparisonChart"></canvas>
                         </div>
                     </div>
 
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">高中阶段毛入学率</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">96.33<span class="text-xl">%</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-university"></i>
-                            </div>
+                    <!-- 恩格尔系数变化趋势 -->
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">恩格尔系数变化趋势</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:%</div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <span class="text-sm">较上年提高</span>
+                        <div class="h-[350px]">
+                            <canvas id="engelChart"></canvas>
                         </div>
                     </div>
 
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">在校学生总数</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">9.21<span class="text-xl">万</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-users"></i>
-                            </div>
+                    <!-- 医疗保险基金支出与受益 -->
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">医疗保险基金支出与受益</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 支出:亿元 受益:万人次</div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <span class="text-sm">各级各类学校400所</span>
+                        <div class="h-[350px]">
+                            <canvas id="medicalInsuranceChart"></canvas>
                         </div>
                     </div>
 
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">高考录取率</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">97<span class="text-xl">%</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-trophy"></i>
-                            </div>
+                    <!-- 社会保险参保情况 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">社会保险参保情况</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万人</div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>1%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比提高</span>
+                        <div class="h-[350px]">
+                            <canvas id="socialInsuranceChart"></canvas>
                         </div>
                     </div>
 
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">城乡居民医疗保险基金支出</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">4.3<span class="text-xl">亿</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-users"></i>
-                            </div>
+                    
+
+                    <!-- 社会救助资金发放 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">社会救助资金发放情况</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万元</div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>20.4%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        <div class="h-[400px]">
+                            <canvas id="socialAssistanceChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -1187,7 +1233,7 @@
                                 <p class="text-gray-400 text-sm">全年保费收入</p>
                                 <h3 class="text-3xl md:text-4xl font-bold mt-1">2.93<span class="text-xl">亿</span></h3>
                                 <p class="text-xs text-gray-500 mt-1">财产险1.84亿 人身险1.09亿</p>
-                            </div>
+                </div>
                             <div
                                 class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
                                 <i class="fa fa-shield"></i>
@@ -1450,8 +1496,8 @@
                         </div>
                         <div class="h-[350px]">
                             <canvas id="techInnovationChart"></canvas>
-                        </div>
                     </div>
+                </div>
 
                     <!-- 教育质量指标雷达图 -->
                     <div class="chart-container grid-span-6">
@@ -1627,11 +1673,11 @@
                         </div>
                     </div>
 
-                    <!-- 医护人员结构 -->
+                    <!-- 医护人员职称分布 -->
                     <div class="chart-container grid-span-4">
                         <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">医护人员结构</h3>
-                            <div class="text-xs text-gray-400">2024年医护人员职称分布</div>
+                            <h3 class="text-lg font-semibold">医护人员职称分布</h3>
+                            <div class="text-xs text-gray-400">2023-2024年医护人员职称分布变化</div>
                         </div>
                         <div class="h-[350px]">
                             <canvas id="medicalStaffChart"></canvas>
@@ -1642,7 +1688,7 @@
                     <div class="chart-container grid-span-4">
                         <div class="flex justify-between items-center mb-2">
                             <h3 class="text-lg font-semibold">体育设施发展</h3>
-                            <div class="text-xs text-gray-400">人均体育场地面积变化</div>
+                            <div class="text-xs text-gray-400">双轴展示：新增面积vs人均面积&达标率</div>
                         </div>
                         <div class="h-[350px]">
                             <canvas id="sportsVenuesChart"></canvas>
@@ -2535,44 +2581,40 @@
                 }
             });
 
-            // 居民收入与消费
-            const incomeConsumptionCtx = document.getElementById('incomeConsumptionChart').getContext('2d');
-            new Chart(incomeConsumptionCtx, {
-                type: 'line',
+            // 1. 城乡居民收入消费对比 (分组柱状图)
+            const incomeComparisonCtx = document.getElementById('incomeComparisonChart').getContext('2d');
+            new Chart(incomeComparisonCtx, {
+                type: 'bar',
                 data: {
-                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    labels: ['2023年', '2024年'],
                     datasets: [
                         {
-                            label: '城镇居民人均可支配收入(元)',
-                            data: [28500, 29800, 31200, 32318, 33979],
+                            label: '城镇居民可支配收入',
+                            data: [32318, 33979],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
                             borderColor: 'rgba(30, 64, 175, 1)',
-                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
-                            tension: 0.3,
-                            fill: true
+                            borderWidth: 1
                         },
                         {
-                            label: '农村居民人均可支配收入(元)',
-                            data: [8900, 9500, 10100, 10610, 11490],
-                            borderColor: 'rgba(249, 115, 22, 1)',
-                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                            tension: 0.3,
-                            fill: true
-                        },
-                        {
-                            label: '城镇居民人均消费支出(元)',
-                            data: [21000, 21800, 22600, 23277, 24254],
+                            label: '农村居民可支配收入',
+                            data: [10610, 11490],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
                             borderColor: 'rgba(16, 185, 129, 1)',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            tension: 0.3,
-                            fill: true
+                            borderWidth: 1
                         },
                         {
-                            label: '农村居民人均消费支出(元)',
-                            data: [8500, 9000, 9600, 10205, 10727],
+                            label: '城镇居民消费支出',
+                            data: [23277, 24254],
+                            backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '农村居民消费支出',
+                            data: [10205, 10727],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
                             borderColor: 'rgba(139, 92, 246, 1)',
-                            backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                            tension: 0.3,
-                            fill: true
+                            borderWidth: 1
                         }
                     ]
                 },
@@ -2580,79 +2622,72 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
+                        duration: 1800,
+                        easing: 'easeOutQuart',
                     },
                     scales: {
                         y: {
-                            beginAtZero: false,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString() + '元';
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}元`;
+                                }
                             }
                         }
                     }
                 }
             });
 
-            // 教育与医疗资源
-            const educationHealthCtx = document.getElementById('educationHealthChart').getContext('2d');
-            new Chart(educationHealthCtx, {
-                type: 'bar',
+            // 2. 恩格尔系数变化趋势 (折线图)
+            const engelCtx = document.getElementById('engelChart').getContext('2d');
+            new Chart(engelCtx, {
+                type: 'line',
                 data: {
-                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    labels: ['2023年', '2024年'],
                     datasets: [
                         {
-                            label: '学校数量(所)',
-                            data: [185, 187, 189, 192, 195],
-                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            label: '城镇居民恩格尔系数(%)',
+                            data: [30.1, 30.4],
                             borderColor: 'rgba(30, 64, 175, 1)',
-                            borderWidth: 1,
-                            yAxisID: 'y'
+                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
                         },
                         {
-                            label: '医院数量(所)',
-                            data: [28, 30, 32, 34, 36],
-                            backgroundColor: 'rgba(249, 115, 22, 0.7)',
-                            borderColor: 'rgba(249, 115, 22, 1)',
-                            borderWidth: 1,
-                            yAxisID: 'y'
-                        },
-                        {
-                            label: '教师人数(人)',
-                            data: [6542, 6785, 6945, 7123, 7345],
-                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                            label: '农村居民恩格尔系数(%)',
+                            data: [34.5, 34.2],
                             borderColor: 'rgba(16, 185, 129, 1)',
-                            borderWidth: 1,
-                            yAxisID: 'y1'
-                        },
-                        {
-                            label: '医生人数(人)',
-                            data: [1254, 1345, 1423, 1542, 1654],
-                            backgroundColor: 'rgba(139, 92, 246, 0.7)',
-                            borderColor: 'rgba(139, 92, 246, 1)',
-                            borderWidth: 1,
-                            yAxisID: 'y1'
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
                         }
                     ]
                 },
@@ -2660,55 +2695,36 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
+                        duration: 1800,
+                        easing: 'easeOutQuart',
                     },
                     scales: {
                         y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: '机构数量',
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            beginAtZero: false,
+                            min: 25,
+                            max: 40,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        y1: {
-                            beginAtZero: true,
-                            position: 'right',
-                            title: {
-                                display: true,
-                                text: '人员数量',
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            },
-                            grid: {
-                                drawOnChartArea: false
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
                             }
                         }
                     }
@@ -2891,7 +2907,7 @@
                             label: '草原植被覆盖率(%)',
                             data: [83.05, 88.05],
                             borderColor: 'rgba(16, 185, 129, 1)',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
                             borderWidth: 3,
                             fill: false,
                             tension: 0.4,
@@ -2974,7 +2990,7 @@
                             label: '2024年事故起数',
                             data: [3, 3],
                             backgroundColor: 'rgba(16, 185, 129, 0.8)',
-                            borderColor: 'rgba(16, 185, 129, 1)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
                             borderWidth: 1,
                             yAxisID: 'y'
                         },
@@ -3063,7 +3079,7 @@
                             data: [100, 87, 83, 48, 84, 20, 15], // 标准化到100分制
                             borderColor: 'rgba(30, 64, 175, 1)',
                             backgroundColor: 'rgba(30, 64, 175, 0.2)',
-                            borderWidth: 2,
+                        borderWidth: 2,
                             pointBackgroundColor: 'rgba(30, 64, 175, 1)',
                             pointBorderColor: '#fff',
                             pointBorderWidth: 2
@@ -3217,7 +3233,7 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { 
+                            ticks: {
                                 color: 'rgba(255, 255, 255, 0.7)',
                                 callback: function(value) {
                                     return value.toLocaleString() + '人';
@@ -3293,7 +3309,7 @@
                             stacked: true,
                             beginAtZero: true,
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { 
+                            ticks: {
                                 color: 'rgba(255, 255, 255, 0.7)',
                                 callback: function(value) {
                                     return value.toLocaleString() + '万元';
@@ -3663,7 +3679,7 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { 
+                            ticks: {
                                 color: 'rgba(255, 255, 255, 0.7)',
                                 callback: function(value) {
                                     return value.toLocaleString();
@@ -3696,91 +3712,40 @@
                 }
             });
 
-            // 4. 医护人员结构 (堆积饼图)
+            // 4. 医护人员逐年变化趋势 (堆积柱状图)
             const medicalStaffCtx = document.getElementById('medicalStaffChart').getContext('2d');
             new Chart(medicalStaffCtx, {
-                type: 'pie',
+                type: 'bar',
                 data: {
-                    labels: ['正高职称', '副高职称', '中级职称', '初级及以下'],
-                    datasets: [{
-                        data: [19, 146, 336, 2403], // 2024年数据：总计2904人减去高中级职称
-                        backgroundColor: [
-                            'rgba(220, 38, 127, 0.8)',
-                            'rgba(249, 115, 22, 0.8)',
-                            'rgba(139, 92, 246, 0.8)',
-                            'rgba(16, 185, 129, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(220, 38, 127, 1)',
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(16, 185, 129, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    animation: {
-                        duration: 1800,
-                        easing: 'easeOutQuart',
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { 
-                                color: 'rgba(255, 255, 255, 0.7)',
-                                font: { size: 11 }
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.raw || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = ((value / total) * 100).toFixed(1);
-                                    return `${label}: ${value}人 (${percentage}%)`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            // 5. 体育设施发展 (折线图)
-            const sportsVenuesCtx = document.getElementById('sportsVenuesChart').getContext('2d');
-            new Chart(sportsVenuesCtx, {
-                type: 'line',
-                data: {
-                    labels: ['2022年', '2023年', '2024年'],
+                    labels: ['2023年', '2024年'],
                     datasets: [
                         {
-                            label: '人均体育场地面积(平方米)',
-                            data: [1.60, 1.74, 1.85], // 推算的历史数据
-                            borderColor: 'rgba(14, 165, 233, 1)',
-                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.4,
-                            pointBackgroundColor: 'rgba(14, 165, 233, 1)',
-                            pointBorderColor: '#fff',
-                            pointBorderWidth: 2,
-                            pointRadius: 6
+                            label: '正高职称',
+                            data: [10, 19],
+                            backgroundColor: 'rgba(220, 38, 127, 0.8)',
+                            borderColor: 'rgba(220, 38, 127, 1)',
+                            borderWidth: 1
                         },
                         {
-                            label: '新增场地面积(平方米)',
-                            data: [0, 5400, 5400],
+                            label: '副高职称',
+                            data: [126, 146],
+                            backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '中级职称',
+                            data: [178, 336],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '初级及以下',
+                            data: [2255, 2403], // 推算的2023年数据：总计2569人减去高中级职称
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
                             borderColor: 'rgba(16, 185, 129, 1)',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.4,
-                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                            pointBorderColor: '#fff',
-                            pointBorderWidth: 2,
-                            pointRadius: 6
+                            borderWidth: 1
                         }
                     ]
                 },
@@ -3793,13 +3758,127 @@
                     },
                     scales: {
                         y: {
+                            stacked: true,
                             beginAtZero: true,
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { 
+                            ticks: {
                                 color: 'rgba(255, 255, 255, 0.7)',
                                 callback: function(value) {
-                                    return value.toLocaleString();
+                                    return value.toLocaleString() + '人';
                                 }
+                            }
+                        },
+                        x: {
+                            stacked: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}人`;
+                                },
+                                footer: function(tooltipItems) {
+                                    let sum = 0;
+                                    tooltipItems.forEach(function(tooltipItem) {
+                                        sum += tooltipItem.raw;
+                                    });
+                                    return '总计: ' + sum.toLocaleString() + '人';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 体育设施发展 (双Y轴混合图)
+            const sportsVenuesCtx = document.getElementById('sportsVenuesChart').getContext('2d');
+            new Chart(sportsVenuesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2022年', '2023年', '2024年'],
+                    datasets: [
+                        {
+                            type: 'line',
+                            label: '人均体育场地面积(㎡)',
+                            data: [1.60, 1.74, 1.85], // 推算的历史数据
+                            borderColor: 'rgba(14, 165, 233, 1)',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(14, 165, 233, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '当年新增场地面积(㎡)',
+                            data: [4800, 5400, 5400], // 推算2022年新增数据
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '体育锻炼标准达标率(%)',
+                            data: [94, 95, 95], // 推算历史数据
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString() + '㎡';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '新增场地面积(㎡)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { drawOnChartArea: false },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value;
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '人均面积(㎡) / 达标率(%)',
+                                color: 'rgba(255, 255, 255, 0.7)'
                             }
                         },
                         x: {
@@ -3814,7 +3893,13 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw}`;
+                                    let unit = '';
+                                    if (context.dataset.label.includes('面积')) {
+                                        unit = context.dataset.yAxisID === 'y1' ? '㎡' : '㎡';
+                                    } else if (context.dataset.label.includes('达标率')) {
+                                        unit = '%';
+                                    }
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
                                 }
                             }
                         }
@@ -4051,7 +4136,7 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { 
+                            ticks: {
                                 color: 'rgba(255, 255, 255, 0.7)',
                                 callback: function(value) {
                                     return value + '亿元';
@@ -4126,11 +4211,11 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { 
+                            ticks: {
                                 color: 'rgba(255, 255, 255, 0.7)',
                                 callback: function(value) {
                                     return value + '亿元';
-                                }
+                            }
                             }
                         },
                         x: {
@@ -4165,7 +4250,7 @@
                             data: [1.81, 1.84],
                             backgroundColor: 'rgba(30, 64, 175, 0.8)',
                             borderColor: 'rgba(30, 64, 175, 1)',
-                            borderWidth: 1
+                        borderWidth: 1
                         },
                         {
                             label: '人身险保费',
@@ -4530,33 +4615,33 @@
                 }
             });
 
-            // 社会保险参保人数统计
-            const insuranceChartCtx = document.getElementById('insuranceChart').getContext('2d');
-            new Chart(insuranceChartCtx, {
+            // 3. 社会保险参保情况 (分组柱状图)
+            const socialInsuranceCtx = document.getElementById('socialInsuranceChart').getContext('2d');
+            new Chart(socialInsuranceCtx, {
                 type: 'bar',
                 data: {
                     labels: [
-                        '企业职工养老保险',
-                        '机关事业单位养老保险',
+                        '企业职工\n养老保险',
+                        '机关事业单位\n养老保险',
                         '失业保险',
                         '工伤保险',
-                        '城乡居民基本养老保险',
+                        '城乡居民\n基本养老保险',
                         '生育保险',
-                        '城镇职工基本医疗保险',
-                        '城乡居民基本医疗保险'
+                        '城镇职工\n基本医疗保险',
+                        '城乡居民\n基本医疗保险'
                     ],
                     datasets: [
                         {
                             label: '2023年',
-                            data: [1.10 - 0.0416, 1.50 - 0.019, 1.51 - 0.0449, 1.58 - 0.0494, 26.89, 1.77 - 0.017, 2.19 - 0.015, 42.62 + 0.073],
-                            backgroundColor: 'rgba(30, 64, 175, 0.5)',
+                            data: [1.0584, 1.481, 1.4651, 1.5306, 26.89, 1.753, 2.175, 43.35],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
                             borderColor: 'rgba(30, 64, 175, 1)',
                             borderWidth: 1
                         },
                         {
                             label: '2024年',
                             data: [1.10, 1.50, 1.51, 1.58, 26.89, 1.77, 2.19, 42.62],
-                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
                             borderColor: 'rgba(16, 185, 129, 1)',
                             borderWidth: 1
                         }
@@ -4569,48 +4654,34 @@
                         duration: 1800,
                         easing: 'easeOutQuart',
                     },
-                    hover: {
-                        animationDuration: 600,
-                    },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: '参保人数(万人)',
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万人';
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 0,
+                                font: { size: 10 }
                             }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
                         },
                         tooltip: {
                             callbacks: {
-                                label: function (context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    label += context.parsed.y + ' 万人';
-                                    return label;
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万人`;
                                 }
                             }
                         }
@@ -4618,91 +4689,206 @@
                 }
             });
 
-            // 社会救助与补贴统计
-            const assistanceChartCtx = document.getElementById('assistanceChart').getContext('2d');
-            new Chart(assistanceChartCtx, {
+            // 4. 医疗保险基金支出与受益 (双轴图)
+            const medicalInsuranceCtx = document.getElementById('medicalInsuranceChart').getContext('2d');
+            new Chart(medicalInsuranceCtx, {
                 type: 'bar',
                 data: {
-                    labels: [
-                        '城市低保',
-                        '农村低保',
-                        '特困供养',
-                        '孤儿保障',
-                        '临时救助',
-                        '残疾人补贴',
-                        '经济困难老人补贴'
-                    ],
+                    labels: ['2023年', '2024年'],
                     datasets: [
                         {
-                            label: '人数(万人)',
-                            data: [-0.33, -4.50, -0.32, -0.006, -2.03, -0.85, -0.22],
-                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
-                            borderColor: 'rgba(16, 185, 129, 1)',
-                            borderWidth: 1
+                            type: 'line',
+                            label: '基金支出(亿元)',
+                            data: [3.57, 4.3],
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 8,
+                            yAxisID: 'y1'
                         },
                         {
-                            label: '金额(万元)',
-                            data: [2478, 16910.14, 3271.46, 77.11, 2380.88, 1338.64, 355.12],
-                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
-                            borderColor: 'rgba(30, 64, 175, 1)',
-                            borderWidth: 1
+                            label: '累计享受待遇(万人次)',
+                            data: [48.97, 12.55],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
                         }
                     ]
                 },
                 options: {
-                    indexAxis: 'y',
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
                         duration: 1800,
                         easing: 'easeOutQuart',
                     },
-                    hover: {
-                        animationDuration: 600,
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万人次';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '享受待遇(万人次)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '基金支出(亿元)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let unit = context.dataset.label.includes('亿元') ? '亿元' : '万人次';
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 社会救助资金发放情况 (水平堆积柱状图)
+            const socialAssistanceCtx = document.getElementById('socialAssistanceChart').getContext('2d');
+            new Chart(socialAssistanceCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '城市低保',
+                            data: [1845.54, 2478],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '农村低保',
+                            data: [16354.38, 16910.14],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '特困供养',
+                            data: [2090.56, 3271.46],
+                            backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '临时救助',
+                            data: [2381.60, 2380.88],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '残疾人补贴',
+                            data: [1296.40, 1338.64],
+                            backgroundColor: 'rgba(236, 72, 153, 0.8)',
+                            borderColor: 'rgba(236, 72, 153, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '困难老人补贴',
+                            data: [234.51, 355.12],
+                            backgroundColor: 'rgba(14, 165, 233, 0.8)',
+                            borderColor: 'rgba(14, 165, 233, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '孤儿保障',
+                            data: [80.89, 77.11],
+                            backgroundColor: 'rgba(34, 197, 94, 0.8)',
+                            borderColor: 'rgba(34, 197, 94, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return (value / 10000).toFixed(1) + '万元';
+                                }
+                            }
+                        },
+                        x: {
+                            stacked: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
                             }
                         },
                         tooltip: {
                             callbacks: {
-                                label: function (context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    let val = Math.abs(context.parsed.x);
-                                    if (context.dataset.label === '人数(万人)') {
-                                        label += val + ' 万人';
-                                    } else {
-                                        label += val + ' 万元';
-                                    }
-                                    return label;
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}万元`;
+                                },
+                                footer: function(tooltipItems) {
+                                    let sum = 0;
+                                    tooltipItems.forEach(function(tooltipItem) {
+                                        sum += tooltipItem.raw;
+                                    });
+                                    return '总计: ' + sum.toLocaleString() + '万元';
                                 }
                             }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: '金额(万元) ← 人数(万人)',
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)',
-                                callback: value => Math.abs(value)
-                            }
-                        },
-                        y: {
-                            ticks: { color: 'rgba(255, 255, 255, 0.7)' },
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
                         }
                     }
                 }
