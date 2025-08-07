@@ -682,6 +682,12 @@
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
                 <button
                     class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="service">
+                    <i class="fa fa-shopping-cart mr-2"></i>服务行业
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
                     data-section="social">
                     <i class="fa fa-users mr-2"></i>社会民生
                 </button>
@@ -1449,6 +1455,305 @@
                         </div>
                         <div class="h-[350px]">
                             <canvas id="agriculturalProductsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 服务行业 -->
+            <section id="service" class="page mb-3" style="display: none;">
+                <div class="text-center mb-4">
+                    <!-- <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
+                        服务行业
+                    </h2> -->
+                </div>
+
+                <!-- 服务行业统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">批发和零售业增加值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">8.54<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>10.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">交通运输仓储邮政业</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">2.58<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-truck"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.4%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">住宿和餐饮业</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">4.01<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                                <i class="fa fa-cutlery"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>10.5%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">金融保险业</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">6.85<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-bank"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>3.2%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">房地产业</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">8.06<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>3.2%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">其他服务业</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">34.5<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-purple/20 flex items-center justify-center text-purple-400">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>2.8%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 服务行业第二行统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">公路客运量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">87.71<span class="text-xl">万人</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增加</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                <i class="fa fa-bus"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>44.64万人</span>
+                            <span class="text-gray-400 text-sm ml-1">增加</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">公路货运量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1039.14<span class="text-xl">万吨</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增加</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-truck"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>377.41万吨</span>
+                            <span class="text-gray-400 text-sm ml-1">增加</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">邮政业务总量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3137<span class="text-xl">万元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年下降</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>1.32%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比下降</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">电信业务总量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">2.05<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.97%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">快递服务业务量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">215.94<span class="text-xl">万件</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-gift"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>28%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">互联网宽带接入用户</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">11.28<span class="text-xl">万户</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增加</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-wifi"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.363万户</span>
+                            <span class="text-gray-400 text-sm ml-1">增加</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 服务行业图表区域 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">服务业增加值对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="serviceValueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">服务业增长率对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:%</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="serviceGrowthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">交通运输量变化</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 客运/货运</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="transportChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">邮政电信业务对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 万元</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="telecomChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">通信用户增长趋势</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 万户/万人</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="communicationChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -3834,6 +4139,353 @@
                             callbacks: {
                                 label: function(context) {
                                     return `${context.dataset.label}: ${context.raw}亿元`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // ===================
+            // 服务行业模块图表
+            // ===================
+            
+            // 1. 服务业增加值对比
+            const serviceValueCtx = document.getElementById('serviceValueChart').getContext('2d');
+            new Chart(serviceValueCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['批发零售业', '交通运输业', '住宿餐饮业', '金融保险业', '房地产业', '其他服务业'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [3.45, 2.06, 2.5, 6.6, 5.98, 25.09],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [8.54, 2.58, 4.01, 6.85, 8.06, 34.5],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}亿元`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. 服务业增长率对比
+            const serviceGrowthCtx = document.getElementById('serviceGrowthChart').getContext('2d');
+            new Chart(serviceGrowthCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['批发零售业', '交通运输业', '住宿餐饮业', '金融保险业', '房地产业', '其他服务业'],
+                    datasets: [
+                        {
+                            label: '2023年增长率',
+                            data: [14.4, 9.1, 27.3, 8.9, 0.1, 3.0],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年增长率',
+                            data: [10.3, 6.4, 10.5, 3.2, 3.2, 2.8],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 3. 交通运输量变化
+            const transportCtx = document.getElementById('transportChart').getContext('2d');
+            new Chart(transportCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['公路客运量', '公路货运量'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [43.07, 661.73],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '2024年',
+                            data: [87.71, 1039.14],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value, index, ticks) {
+                                    const labels = ['公路客运量', '公路货运量'];
+                                    const label = this.chart.data.labels[index] || '';
+                                    if (label.includes('客运')) {
+                                        return value + '万人';
+                                    } else {
+                                        return value + '万吨';
+                                    }
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const unit = context.label.includes('客运') ? '万人' : '万吨';
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 4. 邮政电信业务对比
+            const telecomCtx = document.getElementById('telecomChart').getContext('2d');
+            new Chart(telecomCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['邮政业务总量', '电信业务总量', '快递服务量'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [3178.45, 6150, 168.7],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [3136.97, 20483.57, 215.94],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString() + '万元';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label;
+                                    let unit = '万元';
+                                    if (label.includes('快递')) {
+                                        unit = '万件';
+                                    }
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 通信用户增长趋势
+            const communicationCtx = document.getElementById('communicationChart').getContext('2d');
+            new Chart(communicationCtx, {
+                type: 'line',
+                data: {
+                    labels: ['固定电话用户', '移动电话用户', '宽带接入用户'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [0.72, 13.6, 5.917],
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.2)',
+                            tension: 0.3,
+                            pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        },
+                        {
+                            label: '2024年',
+                            data: [0.86, 40.92, 11.28],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            tension: 0.3,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万户';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万户`;
                                 }
                             }
                         }
