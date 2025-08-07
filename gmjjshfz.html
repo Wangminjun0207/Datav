@@ -658,8 +658,20 @@
             <div class="flex justify-center items-center space-x-2">
                 <button
                     class="nav-btn active bg-primary/30 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/40"
+                    data-section="overview">
+                    <i class="fa fa-dashboard mr-2"></i>综合概况
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
                     data-section="investment">
                     <i class="fa fa-building mr-2"></i>固投规模
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="industry">
+                    <i class="fa fa-industry mr-2"></i>工业建筑
                 </button>
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
                 <button
@@ -703,8 +715,190 @@
 
     <main class="min-h-screen main-content content-safe-area" id="main-content" style="padding-top: 0px !important;">
         <div class="px-1 py-1">
+            <!-- 综合概况 -->
+            <section id="overview" class="page active mb-3" style="display: block;">
+                <div class="text-center mb-4">
+                    <!-- <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
+                        综合概况
+                    </h2> -->
+                </div>
+
+                <!-- 关键指标统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">地区生产总值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">95<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.1%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">常住人口</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">41.79<span class="text-xl">万人</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年末：比上年减少</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>0.1万人</span>
+                            <span class="text-gray-400 text-sm ml-1">减少</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">城镇化率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">34.84<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年提高</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>1.47</span>
+                            <span class="text-gray-400 text-sm ml-1">百分点</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">人均GDP</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">22703<span class="text-xl">元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-money"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.7%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">劳务收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">27.91<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增加</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-briefcase"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.4%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">新增就业</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">2749<span class="text-xl">人</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：城镇就业</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-purple/20 flex items-center justify-center text-purple-400">
+                                <i class="fa fa-user-plus"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>475人</span>
+                            <span class="text-gray-400 text-sm ml-1">比上年增加</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 综合概况图表区域 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">地区生产总值及增速</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="overviewGdpChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">三次产业结构对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:%</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="overviewIndustryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">人口城镇化率变化</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:%</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="overviewUrbanizationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">劳务收入增长趋势</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="overviewLaborChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">人口结构分析</h3>
+                            <div class="text-xs text-gray-400">2024年 城乡人口分布</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="overviewPopulationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- 固投规模 -->
-            <section id="investment" class="page active mb-3" style="display: block;">
+            <section id="investment" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
                     <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
@@ -888,6 +1082,188 @@
                         </div>
                         <div class="h-[300px]">
                             <canvas id="projectCountChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工业建筑 -->
+            <section id="industry" class="page mb-3" style="display: none;">
+                <div class="text-center mb-4">
+                    <!-- <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
+                        工业建筑
+                    </h2> -->
+                </div>
+
+                <!-- 工业建筑统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">工业增加值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">10.6<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-industry"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>11.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">工业占GDP比重</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">11.2<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比2023年大幅提升</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-pie-chart"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.7</span>
+                            <span class="text-gray-400 text-sm ml-1">百分点</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">规模以上工业增加值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">14.5<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：增长率</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                                <i class="fa fa-cogs"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.2</span>
+                            <span class="text-gray-400 text-sm ml-1">百分点提升</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">年发电量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1.63<span class="text-xl">亿千瓦时</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年下降</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                <i class="fa fa-flash"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>13.67%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比下降</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">中成药生产</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">534.2<span class="text-xl">吨</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年下降</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-medkit"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>46.57%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比下降</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">建筑业增加值</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">5.3<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-building-o"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>20.5%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 工业建筑图表区域 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">工业增加值增长趋势</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="industryValueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">规模以上/以下工业增长对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 增长率%</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="industryScaleChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">发电量变化趋势</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 万千瓦时</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="powerGenerationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">中成药生产量对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:吨</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="medicineProductionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">工业与建筑业增加值对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:亿元</div>
+                        </div>
+                        <div class="h-[300px]">
+                            <canvas id="industryConstructionChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -2388,14 +2764,365 @@
             });
 
             // 初始化：确保默认显示第一个页面
-            switchToPage('investment');
-            updateNavButtons('investment');
+            switchToPage('overview');
+            updateNavButtons('overview');
 
             console.log('页面切换功能初始化完成');
         }
 
         // 图表渲染函数
         function renderCharts() {
+            // ===================
+            // 综合概况模块图表
+            // ===================
+            
+            // 1. 综合概况 - 地区生产总值及增速
+            const overviewGdpCtx = document.getElementById('overviewGdpChart').getContext('2d');
+            new Chart(overviewGdpCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '地区生产总值(亿元)',
+                            data: [69.43, 95],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '同比增长率(%)',
+                            data: [7.2, 6.1],
+                            type: 'line',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                            tension: 0.3,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: false,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let unit = context.dataset.label.includes('%') ? '%' : '亿元';
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. 综合概况 - 三次产业结构对比
+            const overviewIndustryCtx = document.getElementById('overviewIndustryChart').getContext('2d');
+            new Chart(overviewIndustryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['第一产业', '第二产业', '第三产业'],
+                    datasets: [
+                        {
+                            label: '2023年产业结构',
+                            data: [20.9, 13.2, 65.9],
+                            backgroundColor: [
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(30, 64, 175, 0.8)',
+                                'rgba(249, 115, 22, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(30, 64, 175, 1)',
+                                'rgba(249, 115, 22, 1)'
+                            ],
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                },
+                                afterLabel: function(context) {
+                                    const data2024 = [15.2, 16.8, 68];
+                                    return `2024年: ${data2024[context.dataIndex]}%`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '50%'
+                }
+            });
+
+            // 3. 综合概况 - 人口城镇化率变化
+            const overviewUrbanizationCtx = document.getElementById('overviewUrbanizationChart').getContext('2d');
+            new Chart(overviewUrbanizationCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '城镇化率(%)',
+                            data: [33.37, 34.84],
+                            borderColor: 'rgba(14, 165, 233, 1)',
+                            backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                            tension: 0.3,
+                            pointBackgroundColor: 'rgba(14, 165, 233, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 30,
+                            max: 40,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 4. 综合概况 - 劳务收入增长趋势
+            const overviewLaborCtx = document.getElementById('overviewLaborChart').getContext('2d');
+            new Chart(overviewLaborCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '劳务收入(亿元)',
+                            data: [26.46, 27.91],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '人均劳务收入(元)',
+                            data: [28886, 30469],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: false,
+                            min: 25,
+                            max: 30,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                stepSize: 1,
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '劳务收入(亿元)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: false,
+                            min: 28000,
+                            max: 31000,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                stepSize: 500,
+                                callback: function(value) {
+                                    return (value/1000).toFixed(1) + 'K元';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '人均劳务收入(千元)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.dataset.label.includes('人均')) {
+                                        return `${context.dataset.label}: ${context.raw.toLocaleString()}元`;
+                                    } else {
+                                        return `${context.dataset.label}: ${context.raw}亿元`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 综合概况 - 人口结构分析
+            const overviewPopulationCtx = document.getElementById('overviewPopulationChart').getContext('2d');
+            new Chart(overviewPopulationCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['城镇人口', '乡村人口'],
+                    datasets: [
+                        {
+                            label: '2024年人口分布',
+                            data: [14.56, 27.23],
+                            backgroundColor: [
+                                'rgba(30, 64, 175, 0.8)',
+                                'rgba(16, 185, 129, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(30, 64, 175, 1)',
+                                'rgba(16, 185, 129, 1)'
+                            ],
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                                    return `${context.label}: ${context.raw}万人 (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // ===================
+            // 固投规模模块图表
+            // ===================
+            
             // 近五年地区生产总值及增速
             const gdpCtx = document.getElementById('gdpChart').getContext('2d');
             new Chart(gdpCtx, {
@@ -2761,7 +3488,9 @@
                 }
             });
 
-
+            // ===================
+            // 工业建筑模块图表
+            // ===================
 
             // 1. 城乡居民收入消费对比 (分组柱状图)
             const incomeComparisonCtx = document.getElementById('incomeComparisonChart').getContext('2d');
