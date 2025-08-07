@@ -658,8 +658,8 @@
             <div class="flex justify-center items-center space-x-2">
                 <button
                     class="nav-btn active bg-primary/30 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/40"
-                    data-section="economy">
-                    <i class="fa fa-line-chart mr-2"></i>经济发展
+                    data-section="investment">
+                    <i class="fa fa-building mr-2"></i>固投规模
                 </button>
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
                 <button
@@ -703,8 +703,8 @@
 
     <main class="min-h-screen main-content content-safe-area" id="main-content" style="padding-top: 0px !important;">
         <div class="px-1 py-1">
-            <!-- 经济发展 -->
-            <section id="economy" class="page active mb-3" style="display: block;">
+            <!-- 固投规模 -->
+            <section id="investment" class="page active mb-3" style="display: block;">
                 <div class="text-center mb-4">
                     <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-2 section-title">
@@ -2388,8 +2388,8 @@
             });
 
             // 初始化：确保默认显示第一个页面
-            switchToPage('economy');
-            updateNavButtons('economy');
+            switchToPage('investment');
+            updateNavButtons('investment');
 
             console.log('页面切换功能初始化完成');
         }
