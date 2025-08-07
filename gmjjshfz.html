@@ -636,20 +636,13 @@
                     id="fullscreen-btn">
                     <i class="fa fa-expand mr-1"></i>全屏展示
                 </button>
-                <button
-                    class="bg-success/20 hover:bg-success/30 text-success px-3 py-1 rounded-lg transition-colors btn-click text-sm">
-                    <i class="fa fa-refresh mr-1"></i>刷新数据
-                </button>
+
                 <button
                     class="bg-accent/20 hover:bg-accent/30 text-accent px-3 py-1 rounded-lg transition-colors btn-click text-sm"
                     id="presentation-btn">
                     <i class="fa fa-play mr-1"></i>演示模式
                 </button>
-                <button
-                    class="bg-warning/20 hover:bg-warning/30 text-warning px-3 py-1 rounded-lg transition-colors btn-click text-sm"
-                    id="export-btn">
-                    <i class="fa fa-download mr-1"></i>导出报告
-                </button>
+
             </div>
         </div>
 
@@ -2563,32 +2556,6 @@
             }
         }
 
-        // 刷新数据功能
-        function refreshData() {
-            // 显示加载状态
-            const refreshBtn = document.querySelector('button:has(.fa-refresh)');
-            const originalText = refreshBtn.innerHTML;
-            refreshBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-1"></i>刷新中...';
-            refreshBtn.disabled = true;
-
-            // 模拟数据刷新
-            setTimeout(() => {
-                // 更新最后更新时间
-                const now = new Date();
-                const updateTimeElement = document.querySelector('.text-sm.text-gray-400 span');
-                if (updateTimeElement) {
-                    updateTimeElement.textContent = now.toLocaleString('zh-CN');
-                }
-
-                // 恢复按钮状态
-                refreshBtn.innerHTML = originalText;
-                refreshBtn.disabled = false;
-
-                // 显示成功提示
-                showNotification('数据刷新成功！', 'success');
-            }, 2000);
-        }
-
         // 显示通知
         function showNotification(message, type = 'info') {
             const notification = document.createElement('div');
@@ -2745,12 +2712,6 @@
         // 键盘快捷键
         function setupKeyboardShortcuts() {
             document.addEventListener('keydown', function (e) {
-                // Ctrl + R 刷新数据
-                if (e.ctrlKey && e.key === 'r') {
-                    e.preventDefault();
-                    refreshData();
-                }
-
                 // F11 全屏切换
                 if (e.key === 'F11') {
                     e.preventDefault();
@@ -6931,34 +6892,6 @@
                     }
                 });
             }
-
-            // 导出报告功能
-            const exportBtn = document.getElementById('export-btn');
-            if (exportBtn) {
-                exportBtn.addEventListener('click', function () {
-                    this.innerHTML = '<i class="fa fa-spinner fa-spin mr-1"></i>导出中...';
-                    this.disabled = true;
-
-                    // 模拟导出过程
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fa fa-download mr-1"></i>导出报告';
-                        this.disabled = false;
-                        showNotification('报告导出成功！', 'success');
-
-                        // 创建下载链接
-                        const data = generateReportData();
-                        const blob = new Blob([data], { type: 'text/html' });
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `岷县2024年经济统计报告_${new Date().toISOString().split('T')[0]}.html`;
-                        document.body.appendChild(a);
-                        a.click();
-                        document.body.removeChild(a);
-                        URL.revokeObjectURL(url);
-                    }, 2000);
-                });
-            }
         }
 
         // 调整内容区域间距
@@ -6993,49 +6926,6 @@
 
         // 监听窗口大小变化，重新调整间距
         window.addEventListener('resize', adjustContentSpacing);
-
-        // 生成报告数据
-        function generateReportData() {
-            const reportData = {
-                title: '岷县2024年国民经济和社会发展统计报告',
-                date: new Date().toLocaleDateString('zh-CN'),
-                data: {
-                    gdp: '95亿元',
-                    growth: '6.1%',
-                    population: '41.79万人',
-                    income: '33,979元'
-                }
-            };
-
-            return `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>${reportData.title}</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        .header { text-align: center; margin-bottom: 40px; }
-        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .data-table th, .data-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        .data-table th { background-color: #f5f5f5; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>${reportData.title}</h1>
-        <p>生成时间：${reportData.date}</p>
-    </div>
-    <table class="data-table">
-        <tr><th>指标</th><th>数值</th></tr>
-        <tr><td>地区生产总值</td><td>${reportData.data.gdp}</td></tr>
-        <tr><td>同比增长率</td><td>${reportData.data.growth}</td></tr>
-        <tr><td>常住人口</td><td>${reportData.data.population}</td></tr>
-        <tr><td>城镇居民人均可支配收入</td><td>${reportData.data.income}</td></tr>
-    </table>
-</body>
-</html>`;
-        }
     </script>
 </body>
 
