@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind 配置xx-->
+    <!-- Tailwind 配置-->
     <script>
         tailwind.config = {
             theme: {
@@ -102,36 +102,7 @@
             .number-animation::after {
                 content: counter(num);
             }
-            .gradient-border {
-                position: relative;
-                border-radius: 0.5rem;
-            }
-            .gradient-border::before {
-                content: "";
-                position: absolute;
-                inset: -2px;
-                z-index: -1;
-                border-radius: 0.6rem;
-                background: linear-gradient(135deg, #1E40AF, #0EA5E9);
-                opacity: 0.6;
-                animation: rotate 6s linear infinite;
-            }
-            @keyframes rotate {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-            
-            /* 加载动画 */
-            .loading-skeleton {
-                background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
-                background-size: 200% 100%;
-                animation: loading 1.5s infinite;
-            }
-            
-            @keyframes loading {
-                0% { background-position: 200% 0; }
-                100% { background-position: -200% 0; }
-            }
+
             
             /* 卡片悬停效果增强 */
             .stat-card:hover {
@@ -147,16 +118,6 @@
             /* 按钮点击效果 */
             .btn-click:active {
                 transform: scale(0.95);
-            }
-            
-            /* 数据更新动画 */
-            .data-update {
-                animation: dataUpdate 0.5s ease-in-out;
-            }
-            
-            @keyframes dataUpdate {
-                0% { opacity: 0.5; transform: scale(0.95); }
-                100% { opacity: 1; transform: scale(1); }
             }
             
             /* 滚动条样式 */
@@ -2661,18 +2622,12 @@
             setupNavigation();
             setupLeadershipFeatures();
 
-            // 多次调整内容间距，确保生效
-            setTimeout(adjustContentSpacing, 100);
-            setTimeout(adjustContentSpacing, 500);
-            setTimeout(adjustContentSpacing, 1000);
-
             // 渲染图表
             renderCharts();
         });
 
         // 错误处理
         window.addEventListener('error', function (e) {
-            console.error('页面错误:', e.error);
             showNotification('页面加载出现错误，请刷新重试', 'error');
         });
 
@@ -2799,13 +2754,9 @@
             const navButtons = document.querySelectorAll('.nav-btn');
             const pages = document.querySelectorAll('.page');
 
-            console.log('导航按钮数量:', navButtons.length);
-            console.log('页面数量:', pages.length);
 
             // 页面切换函数
             function switchToPage(pageId) {
-                console.log('切换到页面:', pageId);
-
                 // 隐藏所有页面
                 pages.forEach(page => {
                     page.classList.remove('active');
@@ -2824,9 +2775,6 @@
                         behavior: 'smooth'
                     });
 
-                    console.log('已切换到页面:', pageId);
-                } else {
-                    console.error('未找到页面:', pageId);
                 }
             }
 
@@ -2877,8 +2825,6 @@
             // 初始化：确保默认显示第一个页面
             switchToPage('overview');
             updateNavButtons('overview');
-
-            console.log('页面切换功能初始化完成');
         }
 
         // 图表渲染函数
@@ -6831,13 +6777,8 @@
             }
         }
 
-
-
         // 领导展示专用功能
         function setupLeadershipFeatures() {
-            // 调整内容区域间距
-            adjustContentSpacing();
-
             // 演示模式
             const presentationBtn = document.getElementById('presentation-btn');
             let demoScrollActive = false;
@@ -6906,21 +6847,14 @@
                 // 设置足够的安全间距（标题栏高度 + 额外间距）
                 const safePadding = 0; // 只加16px间距
 
-                console.log('标题栏高度:', headerHeight, '设置间距:', safePadding);
-
                 // 强制应用间距（使用setProperty确保优先级）
                 mainContent.style.setProperty('padding-top', `${safePadding}px`, 'important');
 
                 // 确保内容可见
                 mainContent.style.setProperty('min-height', `calc(100vh - ${safePadding}px)`, 'important');
 
-                // 添加调试信息
-                console.log('已设置main-content的padding-top为:', mainContent.style.paddingTop);
-
                 // 确保页面滚动到顶部
                 window.scrollTo(0, 0);
-            } else {
-                console.error('未找到header或main-content元素');
             }
         }
 
