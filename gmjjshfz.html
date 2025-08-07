@@ -785,70 +785,37 @@
                     </h2>-->
                 </div>
 
-                <div class="dashboard-grid">
-
-                    <div class="chart-container grid-span-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">2024年主要农作物种植面积</h3>
-                            <div class="text-xs text-gray-400">单位:万亩</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="cropAreaChart"></canvas>
-                        </div>
-                    </div>
-
-
-
-                    <div class="chart-container grid-span-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">主要农产品产量</h3>
-                            <div class="text-xs text-gray-400">2024年 单位:万吨</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="agriculturalProductsChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-container grid-span-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">2020-2024年粮食产量</h3>
-                            <div class="text-xs text-gray-400">单位:万吨</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="grainProductionChart"></canvas>
-                        </div>
-                    </div>
-
-                    <!-- 牲畜存出栏统计图 -->
-
-                    <div class="chart-container grid-span-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">牲畜存出栏统计</h3>
-                            <div class="text-xs text-gray-400">2024年 单位:万头/万只</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="livestockBarLineChart"></canvas>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-
-
-                <div class="dashboard-grid mt-2">
+                <!-- 农业生产统计卡片 -->
+                <div class="dashboard-grid mb-4">
                     <div class="stat-card grid-span-2">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-gray-400 text-sm">粮食总产量</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">6.98<span class="text-xl">万吨</span>
-                                </h3>
+                                <p class="text-gray-400 text-sm">农作物种植总面积</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">75.3<span class="text-xl">万亩</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长3.94%</p>
                             </div>
                             <div
                                 class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
                                 <i class="fa fa-leaf"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>3.94%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">粮食总产量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">6.98<span class="text-xl">万吨</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：增加694.31吨</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-wheat"></i>
                             </div>
                         </div>
                         <div class="flex items-center text-success">
@@ -861,18 +828,18 @@
                     <div class="stat-card grid-span-2">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-gray-400 text-sm">中药材产量</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">13.17<span class="text-xl">万吨</span>
-                                </h3>
+                                <p class="text-gray-400 text-sm">中药材种植面积</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">41.9<span class="text-xl">万亩</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">特色优势产业</p>
                             </div>
                             <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
                                 <i class="fa fa-medkit"></i>
                             </div>
                         </div>
                         <div class="flex items-center text-success">
                             <i class="fa fa-arrow-up mr-1"></i>
-                            <span>9.34%</span>
+                            <span>6.32%</span>
                             <span class="text-gray-400 text-sm ml-1">同比增长</span>
                         </div>
                     </div>
@@ -880,38 +847,19 @@
                     <div class="stat-card grid-span-2">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-gray-400 text-sm">蔬菜产量</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">0.27<span class="text-xl">万吨</span>
-                                </h3>
+                                <p class="text-gray-400 text-sm">大牲畜存栏</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">8.74<span class="text-xl">万头</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年年末</p>
                             </div>
                             <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-carrot"></i>
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-cow"></i>
                             </div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>23.33%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">油料产量</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1.14<span class="text-xl">万吨</span>
-                                </h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-seedling"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <i class="fa fa-arrow-up mr-1"></i>
-                            <span>8.89%</span>
-                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>4.42%</span>
+                            <span class="text-gray-400 text-sm ml-1">下降</span>
                         </div>
                     </div>
 
@@ -919,17 +867,17 @@
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 <p class="text-gray-400 text-sm">鲜蛋产量</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">0.234<span class="text-xl">万吨</span>
-                                </h3>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">753<span class="text-xl">吨</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年全年</p>
                             </div>
                             <div
-                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
                                 <i class="fa fa-egg"></i>
                             </div>
                         </div>
                         <div class="flex items-center text-success">
                             <i class="fa fa-arrow-up mr-1"></i>
-                            <span>9.1%</span>
+                            <span>21.94%</span>
                             <span class="text-gray-400 text-sm ml-1">同比增长</span>
                         </div>
                     </div>
@@ -938,17 +886,76 @@
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 <p class="text-gray-400 text-sm">牛奶产量</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">0.156<span class="text-xl">万吨</span>
-                                </h3>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">707<span class="text-xl">吨</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年全年</p>
                             </div>
-                            <div class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
-                                <i class="fa fa-milk"></i>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-glass"></i>
                             </div>
                         </div>
                         <div class="flex items-center text-success">
                             <i class="fa fa-arrow-up mr-1"></i>
-                            <span>11.4%</span>
+                            <span>5.07%</span>
                             <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 统计图表 -->
+                <div class="dashboard-grid">
+                    <!-- 农作物种植面积对比 -->
+                    <div class="chart-container grid-span-5">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">农作物种植面积对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万亩</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="cropAreaComparisonChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 粮食产量变化趋势 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">粮食产量变化趋势</h3>
+                            <div class="text-xs text-gray-400">2020-2024年 单位:万吨</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="grainProductionTrendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 特色优势产业种植面积 -->
+                    <div class="chart-container grid-span-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">特色优势产业种植面积</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万亩</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="specialCropsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 畜牧业存出栏对比 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">畜牧业存出栏对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万头/万只</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="livestockChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 农产品产量对比 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">主要农产品产量对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万吨/吨</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="agriculturalProductsChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -3907,84 +3914,25 @@
                 }
             });
 
-            // 2020-2024年粮食产量
-            const grainProductionCtx = document.getElementById('grainProductionChart').getContext('2d');
-            new Chart(grainProductionCtx, {
-                type: 'line',
-                data: {
-                    labels: ['2020', '2021', '2022', '2023', '2024'],
-                    datasets: [
-                        {
-                            label: '粮食总产量(万吨)',
-                            data: [6.67, 6.82, 6.75, 6.91, 6.98],
-                            borderColor: 'rgba(16, 185, 129, 1)',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            tension: 0.3,
-                            fill: true
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // 主要农产品产量
-            const agriculturalProductsCtx = document.getElementById('agriculturalProductsChart').getContext('2d');
-            new Chart(agriculturalProductsCtx, {
+            // 1. 农作物种植面积对比 (分组柱状图)
+            const cropAreaComparisonCtx = document.getElementById('cropAreaComparisonChart').getContext('2d');
+            new Chart(cropAreaComparisonCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['粮食', '中药材', '蔬菜', '油料'],
+                    labels: ['总面积', '粮食作物', '经济作物', '夏粮', '秋粮'],
                     datasets: [
                         {
-                            label: '主要农产品产量(万吨)',
-                            data: [6.98, 13.17, 0.27, 1.14],
-                            backgroundColor: [
-                                'rgba(16, 185, 129, 0.7)',
-                                'rgba(139, 92, 246, 0.7)',
-                                'rgba(249, 115, 22, 0.7)',
-                                'rgba(249, 115, 22, 0.7)'
-                            ],
-                            borderColor: [
-                                'rgba(16, 185, 129, 1)',
-                                'rgba(139, 92, 246, 1)',
-                                'rgba(249, 115, 22, 1)',
-                                'rgba(249, 115, 22, 1)'
-                            ],
+                            label: '2023年',
+                            data: [72.45, 26.82, 45.63, 10.49, 16.33],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [75.3, 26.83, 48.47, 10.5, 16.33],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
                             borderWidth: 1
                         }
                     ]
@@ -3993,35 +3941,120 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
+                        duration: 1800,
+                        easing: 'easeOutQuart',
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万亩';
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万亩`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. 粮食产量变化趋势 (折线图)
+            const grainProductionTrendCtx = document.getElementById('grainProductionTrendChart').getContext('2d');
+            new Chart(grainProductionTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020年', '2021年', '2022年', '2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '粮食总产量',
+                            data: [6.67, 6.82, 6.75, 6.91, 6.98],
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        },
+                        {
+                            label: '夏粮产量',
+                            data: [2.2, 2.25, 2.28, 2.29, 2.3],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        },
+                        {
+                            label: '秋粮产量',
+                            data: [4.47, 4.57, 4.47, 4.62, 4.68],
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万吨';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万吨`;
+                                }
                             }
                         }
                     }
@@ -4438,38 +4471,26 @@
                 });
             }
 
-            // 牲畜存出栏统计图
-            const livestockBarLineCtx = document.getElementById('livestockBarLineChart').getContext('2d');
-            new Chart(livestockBarLineCtx, {
+            // 3. 特色优势产业种植面积 (分组柱状图)
+            const specialCropsCtx = document.getElementById('specialCropsChart').getContext('2d');
+            new Chart(specialCropsCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['猪', '牛', '羊', '禽'],
+                    labels: ['马铃薯', '中药材', '蔬菜'],
                     datasets: [
                         {
-                            label: '存栏量',
-                            data: [12.5, 3.2, 8.6, 45.3],
-                            backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                            label: '2023年',
+                            data: [16.23, 39.41, 0.43],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
                             borderColor: 'rgba(30, 64, 175, 1)',
                             borderWidth: 1
                         },
                         {
-                            label: '出栏量',
-                            data: [15.8, 2.8, 9.2, 52.1],
-                            backgroundColor: 'rgba(249, 115, 22, 0.7)',
-                            borderColor: 'rgba(249, 115, 22, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: '比上年增长率(%)',
-                            data: [-2.1, 1.5, 0.8, -0.5],
-                            type: 'line',
-                            yAxisID: 'y1',
+                            label: '2024年',
+                            data: [16.27, 41.9, 0.49],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
                             borderColor: 'rgba(16, 185, 129, 1)',
-                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                            tension: 0.3,
-                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                            pointRadius: 4,
-                            fill: false
+                            borderWidth: 1
                         }
                     ]
                 },
@@ -4480,86 +4501,70 @@
                         duration: 1800,
                         easing: 'easeOutQuart',
                     },
-                    hover: {
-                        animationDuration: 600,
-                    },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: '数量(万头/万只)',
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万亩';
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        y1: {
-                            beginAtZero: true,
-                            position: 'right',
-                            title: {
-                                display: true,
-                                text: '增长率(%)',
-                                color: 'rgba(16, 185, 129, 1)'
-                            },
-                            grid: {
-                                drawOnChartArea: false
-                            },
-                            ticks: {
-                                color: 'rgba(16, 185, 129, 1)'
-                            }
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万亩`;
+                                }
                             }
                         }
                     }
                 }
             });
 
-            // 2024年主要农作物种植面积
-            const cropAreaCtx = document.getElementById('cropAreaChart').getContext('2d');
-            new Chart(cropAreaCtx, {
+            // 4. 畜牧业存出栏对比 (分组柱状图)
+            const livestockCtx = document.getElementById('livestockChart').getContext('2d');
+            new Chart(livestockCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['粮食作物', '夏粮', '秋粮', '经济作物', '马铃薯', '中药材', '蔬菜'],
+                    labels: ['猪', '牛', '羊', '家禽'],
                     datasets: [
                         {
-                            label: '面积(万亩)',
-                            data: [26.83, 10.5, 16.33, 48.47, 16.27, 41.9, 0.49],
-                            backgroundColor: [
-                                'rgba(16, 185, 129, 0.7)',
-                                'rgba(30, 64, 175, 0.7)',
-                                'rgba(30, 64, 175, 0.5)',
-                                'rgba(249, 115, 22, 0.7)',
-                                'rgba(139, 92, 246, 0.7)',
-                                'rgba(139, 92, 246, 0.5)',
-                                'rgba(249, 115, 22, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(16, 185, 129, 1)',
-                                'rgba(30, 64, 175, 1)',
-                                'rgba(30, 64, 175, 0.8)',
-                                'rgba(249, 115, 22, 1)',
-                                'rgba(139, 92, 246, 1)',
-                                'rgba(139, 92, 246, 0.8)',
-                                'rgba(249, 115, 22, 0.8)'
-                            ],
+                            label: '2023年存栏',
+                            data: [6.9, 8.2, 17.52, 19.24],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年存栏',
+                            data: [7.01, 7.96, 17.28, 18.76],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2023年出栏',
+                            data: [7.34, 1.42, 8.82, 17.52],
+                            backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年出栏',
+                            data: [7.5, 1.55, 9.62, 18.84],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
                             borderWidth: 1
                         }
                     ]
@@ -4571,43 +4576,150 @@
                         duration: 1800,
                         easing: 'easeOutQuart',
                     },
-                    hover: {
-                        animationDuration: 600,
-                    },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万头/万只';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万头/万只`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 主要农产品产量对比 (混合图表)
+            const agriculturalProductsCtx = document.getElementById('agriculturalProductsChart').getContext('2d');
+            new Chart(agriculturalProductsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['粮食总产量', '中药材', '油料', '蔬菜', '鲜蛋产量', '牛奶产量'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [6.91, 12.04, 1.05, 0.22, 0.062, 0.067],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '2024年',
+                            data: [6.98, 13.17, 1.14, 0.27, 0.753, 0.707],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            type: 'line',
+                            label: '增长率(%)',
+                            data: [1.0, 9.34, 8.89, 23.33, 21.94, 5.07],
+                            borderColor: 'rgba(236, 72, 153, 1)',
+                            backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(236, 72, 153, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万吨/吨';
+                                }
                             },
-                            ticks: {
+                            title: {
+                                display: true,
+                                text: '产量(万吨/吨)',
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            max: 30,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '增长率(%)',
                                 color: 'rgba(255, 255, 255, 0.7)'
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                font: { size: 10 }
                             }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
                         },
                         tooltip: {
                             callbacks: {
-                                label: function (context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
+                                label: function(context) {
+                                    let unit = '';
+                                    if (context.dataset.label.includes('增长率')) {
+                                        unit = '%';
+                                    } else if (context.dataIndex >= 4) {
+                                        unit = '吨';
+                                    } else {
+                                        unit = '万吨';
                                     }
-                                    label += context.parsed.y + ' 万亩';
-                                    return label;
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
                                 }
                             }
                         }
