@@ -682,6 +682,18 @@
                 <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
                 <button
                     class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="education">
+                    <i class="fa fa-graduation-cap mr-2"></i>科学教育
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
+                    data-section="culture-health">
+                    <i class="fa fa-heart mr-2"></i>文旅卫体
+                </button>
+                <div class="w-1 h-6 bg-primary/30 rounded-full"></div>
+                <button
+                    class="nav-btn bg-primary/10 text-slate-300 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary/20"
                     data-section="environment">
                     <i class="fa fa-tree mr-2"></i>资源环境
                 </button>
@@ -1269,61 +1281,403 @@
                 
             </section>
 
+            <!-- 科学教育 -->
+            <section id="education" class="page mb-3" style="display: none;">
+                <div class="text-center mb-4">
+                    <!-- <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-info via-primary to-accent mb-2 section-title">
+                        科学教育
+                    </h2> -->
+                </div>
+
+                <!-- 科学教育统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">科学技术支出</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3460<span class="text-xl">万元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长16.4%</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center text-info">
+                                <i class="fa fa-flask"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>16.4%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">专利授权数量</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">41<span class="text-xl">件</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">其中发明专利1件，有效专利174件</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i class="fa fa-lightbulb-o"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-info">
+                            <i class="fa fa-certificate mr-1"></i>
+                            <span>0.40件</span>
+                            <span class="text-gray-400 text-sm ml-1">万人发明专利</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">各类学校总数</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">400<span class="text-xl">所</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年减少68所</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>14.5%</span>
+                            <span class="text-gray-400 text-sm ml-1">学校数减少</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">在校学生总数</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">9.21<span class="text-xl">万人</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">含高中、初中、小学、幼儿园等</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>2.2%</span>
+                            <span class="text-gray-400 text-sm ml-1">学生数减少</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">高考录取率</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">97<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">向高等院校输送3789人</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>1.0%</span>
+                            <span class="text-gray-400 text-sm ml-1">录取率提升</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">教育保障经费</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1.91<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">义务教育保障经费总投入</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
+                                <i class="fa fa-dollar"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>130.2%</span>
+                            <span class="text-gray-400 text-sm ml-1">经费增长</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 科学教育图表区域 -->
+                <div class="dashboard-grid">
+                    <!-- 学校类型分布对比 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">学校类型分布</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:所</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="schoolTypesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 在校学生数量变化 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">在校学生数量变化</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:人</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="studentNumbersChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 教育经费投入分析 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">教育经费投入分析</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万元</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="educationFundingChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 科技创新指标 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">科技创新指标</h3>
+                            <div class="text-xs text-gray-400">专利授权与科技成果</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="techInnovationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 教育质量指标雷达图 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">教育质量综合评估</h3>
+                            <div class="text-xs text-gray-400">2023-2024年综合指标对比</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="educationQualityRadarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 文旅卫体 -->
+            <section id="culture-health" class="page mb-3" style="display: none;">
+                <div class="text-center mb-4">
+                    <!-- <h2
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mb-2 section-title">
+                        文旅卫体
+                    </h2> -->
+                </div>
+
+                <!-- 文旅卫体统计卡片 -->
+                <div class="dashboard-grid mb-4">
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">旅游接待人次</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">416.8<span class="text-xl">万</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长179%</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-pink/20 flex items-center justify-center text-pink">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>179%</span>
+                            <span class="text-gray-400 text-sm ml-1">大幅增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">旅游综合收入</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">24.1<span class="text-xl">亿元</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年增长217%</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-purple/20 flex items-center justify-center text-purple">
+                                <i class="fa fa-dollar"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>217%</span>
+                            <span class="text-gray-400 text-sm ml-1">收入大增</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">医疗机构床位</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">2839<span class="text-xl">张</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">县乡医疗卫生单位389个</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-blue/20 flex items-center justify-center text-blue">
+                                <i class="fa fa-hospital-o"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>20.6%</span>
+                            <span class="text-gray-400 text-sm ml-1">床位增加</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">医护人员总数</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">2904<span class="text-xl">人</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">医师1362人，护士1542人</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-green/20 flex items-center justify-center text-green">
+                                <i class="fa fa-user-md"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>13.1%</span>
+                            <span class="text-gray-400 text-sm ml-1">人员增长</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">文化设施覆盖</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">95.44<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">广播电视人口覆盖率</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-orange/20 flex items-center justify-center text-orange">
+                                <i class="fa fa-radio"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-info">
+                            <i class="fa fa-signal mr-1"></i>
+                            <span>稳定</span>
+                            <span class="text-gray-400 text-sm ml-1">覆盖稳定</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">人均体育场地</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">1.85<span class="text-xl">㎡</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">新增公共体育场地5400㎡</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-teal/20 flex items-center justify-center text-teal">
+                                <i class="fa fa-futbol-o"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>6.3%</span>
+                            <span class="text-gray-400 text-sm ml-1">场地增加</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文旅卫体图表区域 -->
+                <div class="dashboard-grid">
+                    <!-- 旅游业发展趋势 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">旅游业发展趋势</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 人次/收入对比</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="tourismTrendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 文化设施分布 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">文化设施分布</h3>
+                            <div class="text-xs text-gray-400">2024年各类文化设施数量</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="culturalFacilitiesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 医疗资源配置 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">医疗资源配置</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 医疗资源对比</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="medicalResourcesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 医护人员结构 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">医护人员结构</h3>
+                            <div class="text-xs text-gray-400">2024年医护人员职称分布</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="medicalStaffChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 体育设施发展 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">体育设施发展</h3>
+                            <div class="text-xs text-gray-400">人均体育场地面积变化</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="sportsVenuesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- 资源环境 -->
             <section id="environment" class="page mb-3" style="display: none;">
                 <div class="text-center mb-4">
-                    <!-- 资<h2
+                    <!-- <h2
                         class="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-success via-secondary to-primary mb-2 section-title">
                         资源环境
                     </h2> -->
                 </div>
 
-                <div class="dashboard-grid">
-                    <div class="chart-container grid-span-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">空气质量</h3>
-                            <div class="text-xs text-gray-400">2024年 优良天数比例</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="airQualityChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-container grid-span-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">能源消耗</h3>
-                            <div class="text-xs text-gray-400">2024年 单位:标准煤万吨</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="energyConsumptionChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-container grid-span-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">绿化与环保投资</h3>
-                            <div class="text-xs text-gray-400">2020-2024年 单位:亿元</div>
-                        </div>
-                        <div class="h-[350px]">
-                            <canvas id="greenInvestmentChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-grid mt-2">
+                <!-- 资源环境统计卡片 -->
+                <div class="dashboard-grid mb-4">
                     <div class="stat-card grid-span-2">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-gray-400 text-sm">地表水水质达标率</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">100<span class="text-xl">%</span></h3>
+                                <p class="text-gray-400 text-sm">全年造林封育面积</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">5.57<span class="text-xl">万亩</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">2024年：比上年减少4.52万亩</p>
                             </div>
                             <div
                                 class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-tint"></i>
+                                <i class="fa fa-tree"></i>
                             </div>
                         </div>
-                        <div class="flex items-center text-success">
-                            <span class="text-sm">集中式饮用水水源地水质达标率100%</span>
+                        <div class="flex items-center text-warning">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>44.8%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比下降</span>
                         </div>
                     </div>
 
@@ -1332,22 +1686,7 @@
                             <div>
                                 <p class="text-gray-400 text-sm">森林覆盖率</p>
                                 <h3 class="text-3xl md:text-4xl font-bold mt-1">11.04<span class="text-xl">%</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                <i class="fa fa-tree"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-success">
-                            <span class="text-sm">林地面积134.6万亩</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">空气质量优良天数比例</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">95.44<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">林地面积134.6万亩，森林面积67.02万亩</p>
                             </div>
                             <div
                                 class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
@@ -1355,23 +1694,9 @@
                             </div>
                         </div>
                         <div class="flex items-center text-success">
-                            <span class="text-sm">PM2.5年均浓度16微克/立方米</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card grid-span-2">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <p class="text-gray-400 text-sm">生产安全事故</p>
-                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3<span class="text-xl">起</span></h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center text-warning">
-                                <i class="fa fa-exclamation-triangle"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center text-warning">
-                            <span class="text-sm">死亡2人，直接经济损失58.6万元</span>
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>0.10%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比提升</span>
                         </div>
                     </div>
 
@@ -1380,6 +1705,7 @@
                             <div>
                                 <p class="text-gray-400 text-sm">草原植被覆盖率</p>
                                 <h3 class="text-3xl md:text-4xl font-bold mt-1">88.05<span class="text-xl">%</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">草原面积190.65万亩</p>
                             </div>
                             <div
                                 class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
@@ -1387,7 +1713,124 @@
                             </div>
                         </div>
                         <div class="flex items-center text-success">
-                            <span class="text-sm">草原面积190.65万亩</span>
+                            <i class="fa fa-arrow-up mr-1"></i>
+                            <span>5.0%</span>
+                            <span class="text-gray-400 text-sm ml-1">同比提升</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">PM2.5年均浓度</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">16<span class="text-xl">μg/m³</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">PM10年均浓度45μg/m³</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-cloud"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>13.5%</span>
+                            <span class="text-gray-400 text-sm ml-1">PM10浓度下降</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">生产安全事故</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3<span class="text-xl">起</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">死亡2人，经济损失58.6万元</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-shield"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>25%</span>
+                            <span class="text-gray-400 text-sm ml-1">事故数下降</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card grid-span-2">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">道路交通事故</p>
+                                <h3 class="text-3xl md:text-4xl font-bold mt-1">3<span class="text-xl">起</span></h3>
+                                <p class="text-xs text-gray-500 mt-1">死亡2人，比上年大幅减少</p>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <i class="fa fa-car"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-success">
+                            <i class="fa fa-arrow-down mr-1"></i>
+                            <span>95.7%</span>
+                            <span class="text-gray-400 text-sm ml-1">事故数下降</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 资源环境图表区域 -->
+                <div class="dashboard-grid">
+                    <!-- 造林封育面积趋势 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">造林封育面积变化</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:万亩</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="forestationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 空气质量指标对比 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">空气质量指标对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:μg/m³</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="airQualityCompareChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 森林草原覆盖率趋势 -->
+                    <div class="chart-container grid-span-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">森林草原覆盖率</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:%</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="coverageRateChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 安全事故统计 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">安全事故统计对比</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 事故起数与死亡人数</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="safetyAccidentChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 环境综合指标雷达图 -->
+                    <div class="chart-container grid-span-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-semibold">环境综合指标评估</h3>
+                            <div class="text-xs text-gray-400">2023-2024年综合对比</div>
+                        </div>
+                        <div class="h-[350px]">
+                            <canvas id="environmentRadarChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -2272,83 +2715,887 @@
                 }
             });
 
-            // 空气质量
-            const airQualityCtx = document.getElementById('airQualityChart').getContext('2d');
-            new Chart(airQualityCtx, {
-                type: 'line',
+            // 1. 造林封育面积变化 (柱状图)
+            const forestationCtx = document.getElementById('forestationChart').getContext('2d');
+            new Chart(forestationCtx, {
+                type: 'bar',
                 data: {
-                    labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                    datasets: [{
-                        label: '空气质量优良天数比例(%)',
-                        data: [95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44, 95.44],
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        borderColor: 'rgba(16, 185, 129, 1)',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: true
-                    }]
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '林业重点区域生态保护修复',
+                            data: [8.8, 4.12],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '经济林果',
+                            data: [0.8, 0.69],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '城乡面山绿化',
+                            data: [0.8, 0.63],
+                            backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '社会造林',
+                            data: [0.4, 0.11],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '东西部协作',
+                            data: [0.1, 0.03],
+                            backgroundColor: 'rgba(236, 72, 153, 0.8)',
+                            borderColor: 'rgba(236, 72, 153, 1)',
+                            borderWidth: 1
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
+                        duration: 1800,
+                        easing: 'easeOutQuart',
                     },
                     scales: {
                         y: {
-                            beginAtZero: false,
-                            min: 90,
-                            max: 100,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万亩';
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            stacked: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}万亩`;
+                                },
+                                footer: function(tooltipItems) {
+                                    let sum = 0;
+                                    tooltipItems.forEach(function(tooltipItem) {
+                                        sum += tooltipItem.raw;
+                                    });
+                                    return '总计: ' + sum + '万亩';
+                                }
                             }
                         }
                     }
                 }
             });
 
-            // 能源消耗
-            const energyConsumptionCtx = document.getElementById('energyConsumptionChart').getContext('2d');
-            new Chart(energyConsumptionCtx, {
+            // 2. 空气质量指标对比 (分组柱状图)
+            const airQualityCompareCtx = document.getElementById('airQualityCompareChart').getContext('2d');
+            new Chart(airQualityCompareCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['第一产业', '第二产业', '第三产业', '居民生活'],
+                    labels: ['PM10', 'PM2.5', 'SO₂', 'NO₂', 'CO', 'O₃'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [52, 16, 13, 12, 1.4, 126],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [45, 16, 13, 11, 1.1, 125],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + 'μg/m³';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let unit = context.dataIndex === 4 ? 'mg/m³' : 'μg/m³';
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 3. 森林草原覆盖率 (双轴图)
+            const coverageRateCtx = document.getElementById('coverageRateChart').getContext('2d');
+            new Chart(coverageRateCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            type: 'line',
+                            label: '森林覆盖率(%)',
+                            data: [10.94, 11.04],
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            type: 'line',
+                            label: '草原植被覆盖率(%)',
+                            data: [83.05, 88.05],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '林地面积(万亩)',
+                            data: [134.55, 134.6],
+                            backgroundColor: 'rgba(249, 115, 22, 0.6)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万亩';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    }
+                }
+            });
+
+            // 4. 安全事故统计对比 (分组柱状图)
+            const safetyAccidentCtx = document.getElementById('safetyAccidentChart').getContext('2d');
+            new Chart(safetyAccidentCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['生产安全事故', '道路交通事故'],
+                    datasets: [
+                        {
+                            label: '2023年事故起数',
+                            data: [4, 70],
+                            backgroundColor: 'rgba(220, 38, 127, 0.8)',
+                            borderColor: 'rgba(220, 38, 127, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '2024年事故起数',
+                            data: [3, 3],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '2023年死亡人数',
+                            data: [5, 32],
+                            backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                            borderColor: 'rgba(239, 68, 68, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '2024年死亡人数',
+                            data: [2, 2],
+                            backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '起';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '人';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    }
+                }
+            });
+
+            // 5. 环境综合指标评估 (雷达图)
+            const environmentRadarCtx = document.getElementById('environmentRadarChart').getContext('2d');
+            new Chart(environmentRadarCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        '造林封育面积',
+                        '森林覆盖率',
+                        '草原植被覆盖率', 
+                        '空气质量PM10',
+                        '空气质量PM2.5',
+                        '生产安全',
+                        '交通安全'
+                    ],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [100, 87, 83, 48, 84, 20, 15], // 标准化到100分制
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.2)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2
+                        },
+                        {
+                            label: '2024年',
+                            data: [55, 88, 88, 56, 84, 75, 95], // 标准化到100分制
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                stepSize: 20,
+                                callback: function(value) {
+                                    return value;
+                                }
+                            },
+                            pointLabels: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}分`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // === 科学教育模块图表 ===
+
+            // 1. 学校类型分布对比 (分组柱状图)
+            const schoolTypesCtx = document.getElementById('schoolTypesChart').getContext('2d');
+            new Chart(schoolTypesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['高级中学', '初中', '小学', '幼儿园', '职业学校', '特教学校'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [3, 16, 221, 215, 1, 1],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [4, 16, 179, 187, 1, 1],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '所';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}所`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. 在校学生数量变化 (分组柱状图)
+            const studentNumbersCtx = document.getElementById('studentNumbersChart').getContext('2d');
+            new Chart(studentNumbersCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['高中', '初中', '小学', '幼儿园', '职业中专', '特教'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [10211, 19861, 44739, 16379, 2881, 134],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [11519, 20273, 43805, 14131, 2230, 127],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString() + '人';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}人`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 3. 教育经费投入分析 (堆积柱状图)
+            const educationFundingCtx = document.getElementById('educationFundingChart').getContext('2d');
+            new Chart(educationFundingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '公用经费',
+                            data: [7186, 7069],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '营养改善专项',
+                            data: [3843.4, 4044],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '困难学生补助',
+                            data: [1645.71, 2073],
+                            backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '学前教育费用',
+                            data: [979.85, 1457.44],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString() + '万元';
+                                }
+                            }
+                        },
+                        x: {
+                            stacked: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}万元`;
+                                },
+                                footer: function(tooltipItems) {
+                                    let sum = 0;
+                                    tooltipItems.forEach(function(tooltipItem) {
+                                        sum += tooltipItem.raw;
+                                    });
+                                    return '总计: ' + sum.toLocaleString() + '万元';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 4. 科技创新指标 (混合图)
+            const techInnovationCtx = document.getElementById('techInnovationChart').getContext('2d');
+            new Chart(techInnovationCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['科技支出', '省科技奖', '市级成果', '专利授权', '发明专利', '技术交易额'],
+                    datasets: [
+                        {
+                            type: 'line',
+                            label: '2024年指标值',
+                            data: [3460, 3, 2, 41, 1, 18000],
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '科技支出(万元)',
+                            data: [3460, 0, 0, 0, 0, 0],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '技术交易额(万元)',
+                            data: [0, 0, 0, 0, 0, 18000],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString() + '万元';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value;
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    }
+                }
+            });
+
+            // 5. 教育质量综合评估 (雷达图)
+            const educationQualityRadarCtx = document.getElementById('educationQualityRadarChart').getContext('2d');
+            new Chart(educationQualityRadarCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        '学前教育毛入园率',
+                        '九年义务教育巩固率',
+                        '高中阶段毛入学率',
+                        '高考录取率',
+                        '教育经费保障',
+                        '科技创新能力',
+                        '教师队伍建设'
+                    ],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [99.96, 100, 96.29, 96.03, 75, 70, 85], // 标准化到100分制
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            backgroundColor: 'rgba(30, 64, 175, 0.2)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2
+                        },
+                        {
+                            label: '2024年',
+                            data: [99.97, 100, 96.33, 97, 95, 72, 87], // 标准化到100分制
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                stepSize: 20,
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            pointLabels: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // === 文旅卫体模块图表 ===
+
+            // 1. 旅游业发展趋势 (双轴混合图)
+            const tourismTrendCtx = document.getElementById('tourismTrendChart').getContext('2d');
+            new Chart(tourismTrendCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            type: 'line',
+                            label: '旅游接待人次(万人)',
+                            data: [149.33, 416.8],
+                            borderColor: 'rgba(236, 72, 153, 1)',
+                            backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '旅游综合收入(亿元)',
+                            data: [7.6, 24.1],
+                            backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '旅游项目投资(万元)',
+                            data: [1000, 1000],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '万人';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    }
+                }
+            });
+
+            // 2. 文化设施分布 (饼图)
+            const culturalFacilitiesCtx = document.getElementById('culturalFacilitiesChart').getContext('2d');
+            new Chart(culturalFacilitiesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['农家书屋', '村级文化服务中心', '文化资源共享站点', '乡镇文化站', '广播电视辅站', '补点站'],
                     datasets: [{
-                        label: '能源消费量(标准煤万吨)',
-                        data: [12.5, 86.3, 42.7, 35.6],
+                        data: [359, 300, 300, 18, 14, 29],
                         backgroundColor: [
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(30, 64, 175, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
+                            'rgba(30, 64, 175, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(249, 115, 22, 0.8)',
+                            'rgba(139, 92, 246, 0.8)',
+                            'rgba(236, 72, 153, 0.8)',
+                            'rgba(14, 165, 233, 0.8)'
                         ],
                         borderColor: [
-                            'rgba(16, 185, 129, 1)',
                             'rgba(30, 64, 175, 1)',
+                            'rgba(16, 185, 129, 1)',
                             'rgba(249, 115, 22, 1)',
-                            'rgba(139, 92, 246, 1)'
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(236, 72, 153, 1)',
+                            'rgba(14, 165, 233, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -2357,63 +3604,51 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
-                        }
+                        duration: 1800,
+                        easing: 'easeOutQuart',
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            position: 'bottom',
+                            labels: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    return `${label}: ${value}个`;
+                                }
                             }
                         }
-                    }
+                    },
+                    cutout: '50%'
                 }
             });
 
-            // 绿化与环保投资
-            const greenInvestmentCtx = document.getElementById('greenInvestmentChart').getContext('2d');
-            new Chart(greenInvestmentCtx, {
-                type: 'line',
+            // 3. 医疗资源配置 (分组柱状图)
+            const medicalResourcesCtx = document.getElementById('medicalResourcesChart').getContext('2d');
+            new Chart(medicalResourcesCtx, {
+                type: 'bar',
                 data: {
-                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    labels: ['医疗机构', '床位数', '执业医师', '注册护士'],
                     datasets: [
                         {
-                            label: '城市绿化投资额(亿元)',
-                            data: [2.5, 2.8, 3.2, 3.5, 4.1],
-                            borderColor: 'rgba(16, 185, 129, 1)',
-                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                            tension: 0.3,
-                            fill: true
+                            label: '2023年',
+                            data: [38, 2354, 1205, 1364],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
                         },
                         {
-                            label: '环保投资额(亿元)',
-                            data: [3.2, 3.6, 4.1, 4.8, 5.6],
-                            borderColor: 'rgba(30, 64, 175, 1)',
-                            backgroundColor: 'rgba(30, 64, 175, 0.1)',
-                            tension: 0.3,
-                            fill: true
+                            label: '2024年',
+                            data: [389, 2839, 1362, 1542],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
                         }
                     ]
                 },
@@ -2421,35 +3656,166 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: {
-                        duration: 1800, // 动画时长
-                        easing: 'easeOutQuart', // 动画曲线
-                    },
-                    hover: {
-                        animationDuration: 600, // 悬停动画时长
+                        duration: 1800,
+                        easing: 'easeOutQuart',
                     },
                     scales: {
                         y: {
-                            beginAtZero: false,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
                             }
                         },
                         x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)'
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let unit = '';
+                                    switch(context.dataIndex) {
+                                        case 0: unit = '个'; break;
+                                        case 1: unit = '张'; break;
+                                        case 2: case 3: unit = '人'; break;
+                                    }
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 4. 医护人员结构 (堆积饼图)
+            const medicalStaffCtx = document.getElementById('medicalStaffChart').getContext('2d');
+            new Chart(medicalStaffCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['正高职称', '副高职称', '中级职称', '初级及以下'],
+                    datasets: [{
+                        data: [19, 146, 336, 2403], // 2024年数据：总计2904人减去高中级职称
+                        backgroundColor: [
+                            'rgba(220, 38, 127, 0.8)',
+                            'rgba(249, 115, 22, 0.8)',
+                            'rgba(139, 92, 246, 0.8)',
+                            'rgba(16, 185, 129, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(220, 38, 127, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(16, 185, 129, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    return `${label}: ${value}人 (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 体育设施发展 (折线图)
+            const sportsVenuesCtx = document.getElementById('sportsVenuesChart').getContext('2d');
+            new Chart(sportsVenuesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2022年', '2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '人均体育场地面积(平方米)',
+                            data: [1.60, 1.74, 1.85], // 推算的历史数据
+                            borderColor: 'rgba(14, 165, 233, 1)',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(14, 165, 233, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        },
+                        {
+                            label: '新增场地面积(平方米)',
+                            data: [0, 5400, 5400],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}`;
+                                }
                             }
                         }
                     }
