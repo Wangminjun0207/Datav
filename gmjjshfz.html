@@ -3491,6 +3491,359 @@
             // ===================
             // 工业建筑模块图表
             // ===================
+            
+            // 1. 工业增加值增长趋势
+            const industryValueCtx = document.getElementById('industryValueChart').getContext('2d');
+            new Chart(industryValueCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '工业增加值(亿元)',
+                            data: [3.11, 10.6],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '增长率(%)',
+                            data: [11.6, 11.3],
+                            type: 'line',
+                            borderColor: 'rgba(249, 115, 22, 1)',
+                            backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                            tension: 0.3,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: '占GDP比重(%)',
+                            data: [4.479, 11.2],
+                            type: 'line',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            tension: 0.3,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let unit = context.dataset.label.includes('增长率') || context.dataset.label.includes('比重') ? '%' : '亿元';
+                                    return `${context.dataset.label}: ${context.raw}${unit}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. 规模以上/以下工业增长对比
+            const industryScaleCtx = document.getElementById('industryScaleChart').getContext('2d');
+            new Chart(industryScaleCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['规模以上工业', '规模以下工业', '制造业', '电力热力供应业'],
+                    datasets: [
+                        {
+                            label: '2023年增长率',
+                            data: [9.3, 21.4, 9.1, 15.8],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年增长率',
+                            data: [14.5, 16.5, 14.7, 9.1],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 3. 发电量变化趋势
+            const powerGenerationCtx = document.getElementById('powerGenerationChart').getContext('2d');
+            new Chart(powerGenerationCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '发电量(万千瓦时)',
+                            data: [18854, 16275],
+                            backgroundColor: [
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(239, 68, 68, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(239, 68, 68, 1)'
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return (value/10000).toFixed(1) + '亿千瓦时';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()}万千瓦时`;
+                                },
+                                afterLabel: function(context) {
+                                    if (context.dataIndex === 1) {
+                                        return '同比下降13.67%';
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 4. 中成药生产量对比
+            const medicineProductionCtx = document.getElementById('medicineProductionChart').getContext('2d');
+            new Chart(medicineProductionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2023年', '2024年'],
+                    datasets: [
+                        {
+                            label: '中成药生产量(吨)',
+                            data: [1052.7, 534.2],
+                            backgroundColor: [
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(239, 68, 68, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(239, 68, 68, 1)'
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '吨';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}吨`;
+                                },
+                                afterLabel: function(context) {
+                                    if (context.dataIndex === 0) {
+                                        return '同比增长67.23%';
+                                    } else if (context.dataIndex === 1) {
+                                        return '同比下降46.57%';
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 5. 工业与建筑业增加值对比
+            const industryConstructionCtx = document.getElementById('industryConstructionChart').getContext('2d');
+            new Chart(industryConstructionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['工业增加值', '建筑业增加值'],
+                    datasets: [
+                        {
+                            label: '2023年',
+                            data: [3.11, 6.03],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2024年',
+                            data: [10.6, 5.3],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1800,
+                        easing: 'easeOutQuart',
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: 'rgba(255, 255, 255, 0.7)' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}亿元`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // ===================
+            // 社会民生模块图表
+            // ===================
 
             // 1. 城乡居民收入消费对比 (分组柱状图)
             const incomeComparisonCtx = document.getElementById('incomeComparisonChart').getContext('2d');
