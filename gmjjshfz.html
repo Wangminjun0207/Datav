@@ -815,8 +815,8 @@
 
                     <div class="chart-container grid-span-6">
                         <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-lg font-semibold">三次产业结构对比</h3>
-                            <div class="text-xs text-gray-400">2023-2024年 单位:%</div>
+                            <h3 class="text-lg font-semibold">地区生产总值及产业构成</h3>
+                            <div class="text-xs text-gray-400">2023-2024年 单位:亿元</div>
                         </div>
                         <div class="h-[350px]">
                             <canvas id="overviewIndustryChart"></canvas>
@@ -2913,27 +2913,30 @@
                 }
             });
 
-            // 2. 综合概况 - 三次产业结构对比
+            // 2. 综合概况 - 地区生产总值及产业构成
             const overviewIndustryCtx = document.getElementById('overviewIndustryChart').getContext('2d');
             new Chart(overviewIndustryCtx, {
-                type: 'doughnut',
+                type: 'bar',
                 data: {
-                    labels: ['第一产业', '第二产业', '第三产业'],
+                    labels: ['地区生产总值', '第一产业', '第二产业', '第三产业'],
                     datasets: [
                         {
-                            label: '2023年产业结构',
-                            data: [20.9, 13.2, 65.9],
-                            backgroundColor: [
-                                'rgba(16, 185, 129, 0.8)',
-                                'rgba(30, 64, 175, 0.8)',
-                                'rgba(249, 115, 22, 0.8)'
-                            ],
-                            borderColor: [
-                                'rgba(16, 185, 129, 1)',
-                                'rgba(30, 64, 175, 1)',
-                                'rgba(249, 115, 22, 1)'
-                            ],
-                            borderWidth: 2
+                            label: '2023年',
+                            data: [69.43, 14.55, 9.14, 45.74],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 2,
+                            borderRadius: 6,
+                            borderSkipped: false
+                        },
+                        {
+                            label: '2024年',
+                            data: [95.0, 14.5, 15.9, 64.6],
+                            backgroundColor: 'rgba(30, 64, 175, 0.8)',
+                            borderColor: 'rgba(30, 64, 175, 1)',
+                            borderWidth: 2,
+                            borderRadius: 6,
+                            borderSkipped: false
                         }
                     ]
                 },
@@ -2944,29 +2947,105 @@
                         duration: 1800,
                         easing: 'easeOutQuart',
                     },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
                     plugins: {
                         legend: {
-                            position: 'right',
+                            position: 'top',
                             labels: {
                                 color: 'rgba(255, 255, 255, 0.7)',
-                                font: { size: 12 }
+                                font: { size: 12 },
+                                usePointStyle: true,
+                                padding: 20
                             }
                         },
                         tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'rgba(255, 255, 255, 0.9)',
+                            bodyColor: 'rgba(255, 255, 255, 0.9)',
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            cornerRadius: 8,
                             callbacks: {
                                 label: function(context) {
-                                    return `${context.label}: ${context.raw}%`;
+                                    const value = context.raw;
+                                    let growthRate = '';
+                                    
+                                    // 计算增长率
+                                    if (context.datasetIndex === 1) { // 2024年数据
+                                        const growth2023 = [7.2, 5.9, 14.7, 6.5]; // 2023年增长率
+                                        const growth2024 = [6.1, 6.2, 14.4, 4.4]; // 2024年增长率
+                                        growthRate = ` (增长${growth2024[context.dataIndex]}%)`;
+                                    } else {
+                                        const growth2023 = [7.2, 5.9, 14.7, 6.5];
+                                        growthRate = ` (增长${growth2023[context.dataIndex]}%)`;
+                                    }
+                                    
+                                    return `${context.dataset.label}: ${value}亿元${growthRate}`;
                                 },
-                                afterLabel: function(context) {
-                                    const data2024 = [15.2, 16.8, 68];
-                                    return `2024年: ${data2024[context.dataIndex]}%`;
+                                afterBody: function(tooltipItems) {
+                                    if (tooltipItems[0].dataIndex === 0) {
+                                        return ['', '2024年人均GDP: 22703元 (增长6.7%)'];
+                                    }
+                                    return [];
                                 }
                             }
                         }
                     },
-                    cutout: '50%'
+                    scales: {
+                        x: {
+                            grid: { 
+                                color: 'rgba(255, 255, 255, 0.1)',
+                                drawBorder: false
+                            },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: { 
+                                color: 'rgba(255, 255, 255, 0.1)',
+                                drawBorder: false
+                            },
+                            ticks: { 
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: { size: 11 },
+                                callback: function(value) {
+                                    return value + '亿元';
+                                }
+                            }
+                        }
+                    }
                 }
             });
+
+            /* 
+            ** 数据扩展说明：
+            ** 要添加2025年或更多年份的数据，请按以下步骤操作：
+            ** 
+            ** 1. 在datasets数组中添加新的数据集：
+            **    {
+            **        label: '2025年',
+            **        data: [新的总值, 第一产业, 第二产业, 第三产业],
+            **        backgroundColor: 'rgba(249, 115, 22, 0.8)', // 选择新颜色
+            **        borderColor: 'rgba(249, 115, 22, 1)',
+            **        borderWidth: 2,
+            **        borderRadius: 6,
+            **        borderSkipped: false
+            **    }
+            ** 
+            ** 2. 在tooltip的callbacks中更新增长率数组：
+            **    const growth2025 = [新的增长率数组];
+            ** 
+            ** 3. 更新HTML标题中的年份范围（如：2023-2025年）
+            ** 
+            ** 示例：如果2025年数据为总值100亿元，各产业为15、18、67亿元，增长率为5.3%、3.1%、13.2%、4.8%
+            ** 则在第三个dataset位置添加相应数据
+            */
 
             // 3. 综合概况 - 人口城镇化率变化
             const overviewUrbanizationCtx = document.getElementById('overviewUrbanizationChart').getContext('2d');
